@@ -1,0 +1,6 @@
+ext/
+!ext/README.md
+build/
+!build/CMakeLists.txt
+!build/cmake-modules
+ArRaspi.pro.user
