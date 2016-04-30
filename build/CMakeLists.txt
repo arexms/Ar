@@ -42,7 +42,7 @@ ADD_CUSTOM_TARGET(
 
 ADD_CUSTOM_TARGET(
 	runTests
-	${EXECUTABLE_OUTPUT_PATH}/./ArRaspi_tests
+	${EXECUTABLE_OUTPUT_PATH}/./ArRaspi_tests --gtest_output="xml:gtest.xml"
 )
 
 link_directories(${Boost_LIBRARY_DIR})
