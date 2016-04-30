@@ -2,4 +2,5 @@
 cd build
 cmake .
 make -j
+make runTests
 cd ..

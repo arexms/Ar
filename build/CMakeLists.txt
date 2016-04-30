@@ -14,8 +14,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake-mo
 find_package(Boost COMPONENTS system REQUIRED)
 
 FILE(GLOB_RECURSE SOURCES_LIST ${PROJECT_BINARY_DIR}/../sources/*.cpp)
+FILE(GLOB_RECURSE TESTS_LIST ${PROJECT_BINARY_DIR}/../tests/*.cpp)
+
 include_directories(../includes)
 include_directories(${Boost_INCLUDE_DIR})
+
 #add_definitions("-Wno-long-long -Wno-variadic-macros -Wall -Wextra -Wno-unknown-pragmas -pedantic -Os -W -pthread -std=c++14")
 add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14 -fprofile-arcs -ftest-coverage")
 add_library(arraspi ${SOURCES_LIST})
@@ -37,8 +40,21 @@ ADD_CUSTOM_TARGET(
 	${EXECUTABLE_OUTPUT_PATH}/./ArRaspi
 )
 
+ADD_CUSTOM_TARGET(
+	runTests
+	${EXECUTABLE_OUTPUT_PATH}/./ArRaspi_tests
+)
+
 link_directories(${Boost_LIBRARY_DIR})
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../ext/googletest/googletest/)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../ext/googletest/googlemock/)
+
 add_executable(ArRaspi ${MAIN_FILE})
+add_executable(ArRaspi_tests ${TESTS_LIST})
+
+target_include_directories(ArRaspi_tests PUBLIC ../ext/googletest/googletest/include)
+target_include_directories(ArRaspi_tests PUBLIC ../ext/googletest/googlemock/include)
 
 target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} pthread gcov)
+target_link_libraries(ArRaspi_tests arraspi ${Boost_LIBRARIES} gcov gmock gmock_main pthread)
 
