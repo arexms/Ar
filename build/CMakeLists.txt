@@ -11,7 +11,7 @@ set(Boost_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../ext/boost_1_60_0/stage/lib)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules/")
 #SET(CMAKE_EXE_LINKER_FLAGS "--coverage" ) # for clang only
 
-find_package(Boost COMPONENTS system thread date_time REQUIRED)
+find_package(Boost COMPONENTS system REQUIRED)
 
 FILE(GLOB_RECURSE SOURCES_LIST ${PROJECT_BINARY_DIR}/../sources/*.cpp)
 include_directories(../includes)

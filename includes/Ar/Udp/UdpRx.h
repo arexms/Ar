@@ -5,9 +5,8 @@
 #include <Ar/Udp/UdpRxConfig.h>
 
 #include <Ar/Middleware/Logger.h>
-
 #include <boost/asio.hpp>
-#include <boost/thread.hpp>
+#include <thread>
 #include <Ar/Common.h>
 #include <functional>
 
@@ -46,7 +45,7 @@ namespace Ar { namespace Udp
         boost::asio::ip::udp::endpoint _remoteEndpoint;
         HandlerData _handlerData;
         char *_data;
-        boost::thread _rxThread;
+        std::thread *_rxThread;
 		boost::asio::ip::udp::endpoint _local_endpoint;
         bool _stop;
     };

@@ -1,10 +1,5 @@
 #include <Ar/Udp/UdpTx.h>
 
-#include <boost/array.hpp>
-#include <boost/asio.hpp>
-#include <boost/lexical_cast.hpp>
-#include <boost/thread.hpp>
-
 #include <Ar/Middleware/Utils.h>
 
 #include <sstream>

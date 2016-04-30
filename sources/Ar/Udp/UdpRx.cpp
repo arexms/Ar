@@ -1,10 +1,6 @@
 #include <Ar/Udp/UdpRx.h>
 
-#include <boost/array.hpp>
-#include <boost/asio.hpp>
-#include <boost/thread.hpp>
-#include <boost/lexical_cast.hpp>
-
+#include <functional>
 #include <Ar/Middleware/Utils.h>
 
 #include <sstream>
@@ -15,9 +11,10 @@ namespace Ar { namespace Udp
 {
     UdpRx::UdpRx()
         : _logger( Middleware::UDP_RX, "UdpRx::" )
-        , _socket( 0 )
+        , _socket( nullptr )
         , _socketReceived( true )
-        , _data( 0 )
+        , _data( nullptr )
+        , _rxThread( nullptr )
         , _stop( false )
     {}
 
@@ -31,8 +28,13 @@ namespace Ar { namespace Udp
             Middleware::safeDel( _socket );
         }
 
-        _rxThread.join();
+        if(_rxThread)
+        {
+            _rxThread->join();
+            Middleware::safeDel(_rxThread);
+        }
         Middleware::safeDelArray( _data );
+
         log().debug( "~UdpRx() stopped" );
     }
 
@@ -78,8 +80,11 @@ namespace Ar { namespace Udp
     {
         log().debug( "run()" );
         startReceive();
-        //_io_service.run();
-        _rxThread = boost::thread (boost::bind( &boost::asio::io_service::run, &_socket->get_io_service() ) );
+
+        /// @note static_cast<size_t (boost::asio::io_service::*)()> because of 2 implementation of method run (with and without args)
+        _rxThread = new std::thread (
+                        std::bind( static_cast<size_t (boost::asio::io_service::*)()>(&boost::asio::io_service::run), &_socket->get_io_service() )
+                    );
     }
 
     void UdpRx::startReceive()
@@ -87,9 +92,9 @@ namespace Ar { namespace Udp
         log().debug( "startReceive()" );
         _socket->async_receive_from(
             boost::asio::buffer( _data, config().maxDataSize ), _local_endpoint,
-            boost::bind(&UdpRx::receivedDatagramAsync, this,
-              boost::asio::placeholders::error,
-              boost::asio::placeholders::bytes_transferred));
+            std::bind(&UdpRx::receivedDatagramAsync, this,
+              std::placeholders::_1/*boost::asio::placeholders::error*/,
+              std::placeholders::_2/*boost::asio::placeholders::bytes_transferred*/));
     }
 
     void UdpRx::receivedDatagramAsync( const boost::system::error_code& error, size_t length )

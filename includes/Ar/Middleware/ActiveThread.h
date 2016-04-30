@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-//#include <boost/lockfree/queue.hpp>
 #include <Ar/Middleware/ActiveThreadCore.h>
 #include <Ar/Middleware/ActiveObject.h>
 #include <Ar/Middleware/SharedPtr.h>

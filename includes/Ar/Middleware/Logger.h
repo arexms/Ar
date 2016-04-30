@@ -5,7 +5,7 @@
 #include <Ar/Middleware/LogLevel.h>
 
 #include <string>
-#include <boost/thread/mutex.hpp>
+#include <mutex>
 
 namespace Ar { namespace Middleware
 {
@@ -35,7 +35,7 @@ namespace Ar { namespace Middleware
             LogLevel    _level;
             Prologue    _prologue;
 
-            static boost::mutex _mutex;
+            static std::mutex _mutex;
         };
 
 

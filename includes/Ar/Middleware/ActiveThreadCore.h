@@ -3,7 +3,8 @@
 #include <string>
 #include <list>
 #include <thread>
-#include <boost/thread/condition_variable.hpp>
+#include <condition_variable>
+#include <mutex>
 #include <Ar/Middleware/IMessage.h>
 #include <Ar/Middleware/SharedPtr.h>
 #include <Ar/Middleware/Logger.h>
@@ -39,8 +40,8 @@ namespace Ar {
             Messages                            _messages;
             SharedPtr<std::thread>              _thread;
             bool                                _stop;
-            mutable boost::mutex                _mutex;
-            mutable boost::condition_variable   _condMsg;
+            mutable std::mutex                  _mutex;
+            mutable std::condition_variable     _condMsg;
         };
 
         // IMPLEMENTATION

@@ -2,9 +2,11 @@
 
 #include <cstdarg>
 
-#include <boost/date_time/posix_time/posix_time.hpp>
-
+#include <chrono>
+#include <sstream>
 #include <fstream>
+#include <iomanip>
+#include <cstring>
 
 namespace Ar { namespace Middleware
 {
@@ -37,7 +39,7 @@ namespace Ar { namespace Middleware
         "???"
     };
     
-    boost::mutex Logger::Log::_mutex;
+    std::mutex Logger::Log::_mutex;
     char Logger::_logSet[ END_LOG_FLAG ] = { 0 };
 
     Logger::Prologue::Prologue()
@@ -59,9 +61,20 @@ namespace Ar { namespace Middleware
 
     const Logger::Log& Logger::Log::operator()( const char *str, ... ) const
     {
-        boost::mutex::scoped_lock lock( _mutex );
+        std::unique_lock<std::mutex> lock( _mutex );
         //if( Logger::_logSet[ _flag ] < _level ) return *this;
-        std::string now = boost::posix_time::to_simple_string( boost::posix_time::microsec_clock::local_time() );
+        //std::string now = boost::posix_time::to_simple_string( boost::posix_time::microsec_clock::local_time() );
+
+            auto now_ = std::chrono::high_resolution_clock::now();
+            auto in_time_t = std::chrono::high_resolution_clock::to_time_t(now_);
+
+                auto mc_since_epoch = std::chrono::duration_cast<std::chrono::microseconds>(now_.time_since_epoch());
+                auto mc = mc_since_epoch.count() % 1000000;
+
+            std::stringstream ss;
+            ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X") << ":" << mc;
+            std::string now = ss.str();
+
         std::string	temp = std::string( "[" ) + now + "][" + LogLevelStr[ _level ] + "][" + LogFlagStr[ _flag ] + "]" + " " + _prologue.prologue + str + "\n";
 
         char buff[ 2048 ] = {0};
@@ -76,7 +89,7 @@ namespace Ar { namespace Middleware
         
         std::fstream file;
         file.open( "logs.txt", std::fstream::app );
-        file.write( buff, strlen( buff ) );
+        file.write( buff, std::strlen( buff ) );
         file.close();
         
         return *this;

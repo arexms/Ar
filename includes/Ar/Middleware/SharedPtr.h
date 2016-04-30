@@ -2,7 +2,7 @@
 #define Ar_Middleware_SharedPtr_h__
 
 #include <Ar/Middleware/Utils.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace Ar { namespace Middleware
 {
@@ -35,7 +35,7 @@ namespace Ar { namespace Middleware
         inline bool isEmpty() const;
 
     protected:
-        boost::shared_ptr< T > _ptr;
+        std::shared_ptr< T > _ptr;
     };
 
     // IMPLEMENTATION
@@ -47,7 +47,7 @@ namespace Ar { namespace Middleware
     template < typename T, PtrType type >
     inline void SharedPtr< T, type >::operator=(T *ptr)
     {
-        _ptr = boost::shared_ptr<T>(ptr);
+        _ptr = std::shared_ptr<T>(ptr);
     }
 
     template < typename T, PtrType type >

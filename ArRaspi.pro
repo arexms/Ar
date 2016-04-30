@@ -56,4 +56,4 @@ HEADERS += \
     includes/Ar/Reset/ResetManager.h \
     includes/Ar/Messages.h
 
-LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_thread -lboost_system -lpthread -lboost_date_time
+LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_system -lpthread
