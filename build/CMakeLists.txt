@@ -17,7 +17,7 @@ FILE(GLOB_RECURSE SOURCES_LIST ${PROJECT_BINARY_DIR}/../sources/*.cpp)
 include_directories(../includes)
 include_directories(${Boost_INCLUDE_DIR})
 #add_definitions("-Wno-long-long -Wno-variadic-macros -Wall -Wextra -Wno-unknown-pragmas -pedantic -Os -W -pthread -std=c++14")
-add_definitions("-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14 -fprofile-arcs -ftest-coverage")
+add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14 -fprofile-arcs -ftest-coverage")
 add_library(arraspi ${SOURCES_LIST})
 
 INCLUDE(CodeCoverage)
