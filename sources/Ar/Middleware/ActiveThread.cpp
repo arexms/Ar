@@ -29,9 +29,12 @@ namespace Ar {
 
         void ActiveThread::stop()
         {
-            log().debug("stop() stopping");
-            ActiveThreadAddresses::getInstance().remove(this->name());
-            _core->stop();
+            if(!_core.isEmpty())
+            {
+                log().debug("stop() stopping");
+                ActiveThreadAddresses::getInstance().remove(this->name());
+                _core->stop();
+            }
         }
 
         void ActiveThread::sendToMe(IMessage *message)

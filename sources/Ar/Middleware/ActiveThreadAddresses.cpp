@@ -28,7 +28,10 @@ namespace Ar { namespace Middleware
 
     void ActiveThreadAddresses::remove(const std::string &atName)
     {
-        _addresses.erase(atName);
+        if(!atName.empty())
+        {
+            _addresses.erase(atName);
+        }
         log().info("Removed: %s", atName.c_str());
     }
 } }
