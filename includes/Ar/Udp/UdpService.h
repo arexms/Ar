@@ -54,21 +54,12 @@ namespace Ar { namespace Udp
         unsigned addUdpTrxRoute(AddUdpTrxRouteMessage *message);
         unsigned add(Route *route);
 
-        inline Middleware::Logger& log();
-
-
     private:
         Ar::Middleware::ActiveThread *_at;
-        mutable Middleware::Logger  _logger;
         std::map<unsigned, Route*> _routes;
     };
 
     // IMPLEMENTATION
-    inline Middleware::Logger& UdpService::log()
-    {
-        return _logger;
-    }
-
     inline Middleware::Logger& UdpService::Route::log()
     {
         return _service->log();

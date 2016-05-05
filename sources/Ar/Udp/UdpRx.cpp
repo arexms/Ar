@@ -100,7 +100,7 @@ namespace Ar { namespace Udp
     void UdpRx::receivedDatagramAsync( const boost::system::error_code& error, size_t length )
     {
         log().debug( "receivedDatagramAsync() length %d", length );
-        --length;
+        //--length;
 
         if( ! error || error == boost::asio::error::message_size )
         {

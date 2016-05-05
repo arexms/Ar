@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Ar/Middleware/Logger.h>
+
 namespace Ar {
     namespace Middleware
     {
@@ -7,25 +9,47 @@ namespace Ar {
 
         class ActiveObject
         {
+            friend class ActiveThread;
+
         public:
-            void attachTo(ActiveThread *at);
+            inline ActiveObject(LogFlag flag);
+            inline void attachTo(ActiveThread *at_);
+            void attachAndInitialize(ActiveThread *at_);
+            inline ActiveThread* at();
             
         protected:
-            ActiveThread* at();
+            virtual void initialize() {}
+            inline Ar::Middleware::Logger& log();
+            inline const Ar::Middleware::Logger& log() const;
 
         private:
             ActiveThread *_at;
+            mutable Ar::Middleware::Logger _log;
         };
 
         // IMPLEMENTATION
-        inline void ActiveObject::attachTo(ActiveThread *at)
+        inline ActiveObject::ActiveObject(LogFlag flag)
+            : _log(flag)
+        {}
+
+        inline void ActiveObject::attachTo(ActiveThread *at_)
         {
-            _at = at;
+            _at = at_;
         }
 
         inline ActiveThread* ActiveObject::at()
         {
             return _at;
+        }
+
+        inline Ar::Middleware::Logger& ActiveObject::log()
+        {
+            return _log;
+        }
+
+        inline const Ar::Middleware::Logger& ActiveObject::log() const
+        {
+            return _log;
         }
     }
 }

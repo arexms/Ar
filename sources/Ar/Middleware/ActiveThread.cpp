@@ -1,6 +1,8 @@
 #include <Ar/Middleware/ActiveThread.h>
 #include <Ar/Middleware/Utils.h>
 #include <Ar/Middleware/ActiveThreadAddresses.h>
+#include <Ar/Messages.h>
+#include <iostream>
 
 namespace Ar {
     namespace Middleware
@@ -63,18 +65,38 @@ namespace Ar {
             return true;
         }
 
+        void ActiveThread::initializeActiveObject(ActiveObject *ao)
+        {
+            auto msg = safeNew<LambdaMessage>();
+            msg->lambda = [ao]()
+            {
+                std::cout << "Asdadasd\n";
+                ao->initialize();
+            };
+            sendTo(ao->at(), msg);
+        }
+
         bool ActiveThread::dispatch(IMessage *message)
         {
             log().debug("dispatch() received %i", message->id());
-            auto receiver = _receivers.find(message->id());
 
-            if (receiver != _receivers.end())
+            if(message->id() == Ar::Middleware::MessageId::LAMBDA_MESSAGE)
             {
-                receiver->second->execute(message);
-                return true;
+                auto m = message->castTo<LambdaMessage>();
+                m->lambda();
             }
+            else
+            {
+                auto receiver = _receivers.find(message->id());
 
-            log().info("dispatch() No registered receiver for %i!", message->id());
+                if (receiver != _receivers.end())
+                {
+                    receiver->second->execute(message);
+                    return true;
+                }
+
+                log().info("dispatch() No registered receiver for %i!", message->id());
+            }
             return false;
         }
     }

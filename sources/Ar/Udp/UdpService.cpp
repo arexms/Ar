@@ -9,8 +9,9 @@ namespace Ar { namespace Udp
     unsigned UdpService::nextRouteId = 0;
 
     UdpService::UdpService()
-        : _at( Ar::Middleware::safeNew<Ar::Middleware::ActiveThread>() )
-        , _logger(UDP_SERVICE)
+        : ActiveObject(UDP_SERVICE)
+        , _at( Ar::Middleware::safeNew<Ar::Middleware::ActiveThread>() )
+
     {
         attachTo(_at);
     }
@@ -109,7 +110,7 @@ namespace Ar { namespace Udp
 
     void UdpService::Route::handleUdpPacket(DataPtr &data, unsigned length)
     {
-        log().debug("Route %u received data(%u): '%s'", _routeId, length, data.get());
+        log().debug("Route %u received data(%u)", _routeId, length);
         sendUdpPacket(data, length);
     }
 

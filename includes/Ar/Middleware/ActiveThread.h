@@ -40,9 +40,11 @@ namespace Ar {
 
         public:
             friend class ActiveThreadCore;
-            
+            friend class ActiveObject;
+
             ActiveThread();
             ~ActiveThread();
+
             void start(const std::string &name);
             void stop();
             bool sendTo(const std::string &atName, IMessage *message);
@@ -61,6 +63,7 @@ namespace Ar {
             const std::string& name() const;
             
         protected:
+            void initializeActiveObject(ActiveObject *ao);
             void sendToMe(IMessage *message);
             SharedPtr<ActiveThreadCore>& core();
             bool dispatch(IMessage *message);

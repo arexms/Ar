@@ -32,7 +32,7 @@ namespace Ar {
                 return static_cast<T*>(this);
             }
 
-            virtual IResponse* createResponse() = 0;
+            virtual IResponse* createResponse() { return nullptr; }
 
             template <typename T>
             static typename T::Response* createResponse(T *message)

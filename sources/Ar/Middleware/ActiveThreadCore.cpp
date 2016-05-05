@@ -44,7 +44,7 @@ namespace Ar {
         IMessage *ActiveThreadCore::waitFor(MessageId id)
         {
             int i = 0;
-            while( i < 20 )
+            while( i < 20 ) /// @todo Hard coded
             {
                 auto message = find( id );
                 if( message != _messages.end())
@@ -53,7 +53,7 @@ namespace Ar {
                     _messages.erase(message);
                     return ret;
                 }
-                std::this_thread::sleep_for( std::chrono::milliseconds(100) );
+                std::this_thread::sleep_for( std::chrono::milliseconds(100) ); /// @todo Hard coded
                 ++i;
             }
 
@@ -69,7 +69,7 @@ namespace Ar {
                     std::unique_lock<std::mutex> lock( _mutex );
                     while (_messages.empty() && !_stop)
                     {
-                        _condMsg.wait_for(lock, std::chrono::milliseconds( 1000 ));
+                        _condMsg.wait_for(lock, std::chrono::milliseconds( 1000 )); /// @todo Hard coded
                         //log().debug("Core::run() idle");
                     }
 

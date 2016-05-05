@@ -14,6 +14,7 @@ namespace Ar {
             ADD_UDP_TRX_ROUTE_RESPONSE  = 6,
             UDP_PACKET                  = 7,
             UDP_PACKET_RESPONSE         = 8,
+            LAMBDA_MESSAGE              = 9,
             END
         };
     }
