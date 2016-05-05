@@ -21,7 +21,11 @@ SOURCES += main.cpp \
     sources/Ar/Udp/UdpTx.cpp \
     sources/Ar/Udp/UdpService.cpp \
     sources/Ar/Middleware/ActiveThreadAddresses.cpp \
-    sources/Ar/Reset/ResetManager.cpp
+    sources/Ar/Reset/ResetManager.cpp \
+    sources/Ar/Middleware/ActiveObject.cpp \
+    sources/Ar/RasPi/Messages/RaspiMessages.pb.cpp \
+    sources/Ar/RasPi/Messages/RaspiMessagesSerDes.cpp \
+    sources/Ar/RasPi/RaspiMessagesGateway.cpp
 
 HEADERS += \
     includes/Ar/Middleware/ActiveObject.h \
@@ -54,6 +58,12 @@ HEADERS += \
     includes/Ar/Middleware/Singleton.h \
     includes/Ar/Middleware/IMessage.h \
     includes/Ar/Reset/ResetManager.h \
-    includes/Ar/Messages.h
+    includes/Ar/Messages.h \
+    includes/Ar/RasPi/Messages/RaspiMessages.pb.h \
+    includes/Ar/RasPi/Messages/RaspiMessagesSerDes.h \
+    includes/Ar/RasPi/RaspiMessagesGateway.h
 
-LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_system -lpthread
+LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_system -lpthread -lprotobuf
+
+DISTFILES += \
+    includes/Ar/RasPi/Messages/RaspiMessages.proto
