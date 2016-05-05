@@ -9,13 +9,15 @@
 #include <Ar/Messages.h>
 #include <Ar/Udp/UdpService.h>
 #include <Ar/Reset/ResetManager.h>
+#include <Ar/RasPi/RaspiMessagesGateway.h>
 
-class A : public Ar::Middleware::ActiveObject
+/*class A : public Ar::Middleware::ActiveObject
 {
     Ar::Middleware::ActiveThread _at;
 
 public:
     A()
+        : ActiveObject(Ar::Middleware::GENERIC)
     {
         _at.start("A thread");
         attachTo(&_at);
@@ -28,7 +30,8 @@ public:
     {
         auto message = Ar::Middleware::safeNew<Ar::OtherMessage>();
         std::cout << "First: ";
-        std::cin >> message->str;
+        //std::cin >> message->str;
+        message->str = "bla";
 
         at()->sendTo("B thread", message);
     }
@@ -163,6 +166,7 @@ class B : public Ar::Middleware::ActiveObject
 
 public:
     B()
+    : ActiveObject(Ar::Middleware::GENERIC)
     {
         _at.start("B thread");
         attachTo(&_at);
@@ -179,7 +183,7 @@ public:
     }
 };
 
-int B::i = 0;
+int B::i = 0;*/
 
 int main()
 {
@@ -187,16 +191,9 @@ int main()
     udpService.initialize();
     udpService.run();
     Ar::Reset::ResetManager resetManager;
+    Ar::RasPi::RaspiMessagesGateway raspiMessagesGateway;
 
-    //system("pause");
-    {
-        A a;
-        B b;
-
-        a.run();
-
-        resetManager.idle();
-    }
+    resetManager.idle();
 
     return 0;
 }

@@ -20,6 +20,7 @@ namespace Ar { namespace Middleware
         AT_ADDR                             = 0x0B,
         RESET                               = 0x0C,
         UDP_SERVICE                         = 0x0D,
+        RASPI_GW                            = 0x0E,
 
         END_LOG_FLAG
     };
