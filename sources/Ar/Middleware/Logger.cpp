@@ -10,6 +10,13 @@
 
 namespace Ar { namespace Middleware
 {
+    /*static const std::string red("\033[0;31m");
+    static const std::string green("\033[1;32m");
+    static const std::string yellow("\033[1;33m");
+    static const std::string cyan("\033[0;36m");
+    static const std::string magenta("\033[0;35m");*/
+    static const std::string reset("\033[0m");
+
     static const char *LogFlagStr[] =
     {
         "    GENERIC",                      //  0x00
@@ -38,6 +45,14 @@ namespace Ar { namespace Middleware
         "INF",
         "DBG",
         "???"
+    };
+
+    static const char *LogColor[] =
+    {
+        "\033[0;31m", // red
+        "\033[1;33m", // yellow
+        "\033[1;32m", // green
+        "\033[0;35m", // magenta
     };
     
     std::mutex Logger::Log::_mutex;
@@ -85,7 +100,7 @@ namespace Ar { namespace Middleware
         va_end( args );
         //if( Logger::_logSet[ PRINT_TO_CONSOLE ] || _level == ERROR )
         {
-            printf( "%s", buff );
+            printf( "%s%s%s", LogColor[ _level ], buff, reset.c_str() );
         }
         
         std::fstream file;
