@@ -33,12 +33,19 @@ namespace Ar { namespace Udp
 
     void UdpService::run()
     {
-        _at->start("UdpService");        
+        _at->start("UdpService");
+    }
+
+    void UdpService::sendUdpPacket(UdpPacketMessage *message)
+    {
+        log().debug("sendUdpPacket() received");
+        _routes[message->routeId]->sendUdpPacket(message);
     }
 
     void UdpService::registerForMessages()
     {
         at()->registerReceiverForMessage(this, &UdpService::handleAddUdpTrxRouteMessage);
+        at()->registerReceiverForMessage(this, &UdpService::sendUdpPacket);
     }
 
     void UdpService::handleAddUdpTrxRouteMessage(AddUdpTrxRouteMessage *message)
@@ -96,7 +103,8 @@ namespace Ar { namespace Udp
     {
         if(_trx->initialize(config, [&](auto data, unsigned length)
         {
-            this->handleUdpPacket(data, length);
+            this->handleUdpPacket(data, length); /// @todo this lambda will be executed in UdpRx/async_receive_from thread, not in UdpSerivce::Route
+                                                 /// @note here message to UdpService::Route needs to be sent
         }))
         {
             _routeId = _service->add(this);
@@ -111,15 +119,21 @@ namespace Ar { namespace Udp
     void UdpService::Route::handleUdpPacket(DataPtr &data, unsigned length)
     {
         log().debug("Route %u received data(%u)", _routeId, length);
-        sendUdpPacket(data, length);
+        sendUdpPacketInternally(data, length);
     }
 
-    void UdpService::Route::sendUdpPacket(DataPtr &data, unsigned length)
+    void UdpService::Route::sendUdpPacketInternally(DataPtr &data, unsigned length)
     {
         auto message = safeNew<UdpPacketMessage>();
         message->routeId = _routeId;
         message->data = data;
         message->length = length;
         _service->at()->sendTo(_callbackAtName, message);
+    }
+
+    void UdpService::Route::sendUdpPacket(UdpPacketMessage *message)
+    {
+        log().debug("Route::sendUdpPacket() received");
+        _trx->send(message->data, message->length);
     }
 } }

@@ -43,6 +43,7 @@ class ArRaspiMessageEnvelope;
 class ArRaspiMessageEnvelope_Body;
 class ArRaspiMessageEnvelope_Header;
 class NewNodeMessage;
+class NodeStatus;
 
 // ===================================================================
 
@@ -130,6 +131,28 @@ class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
   ::std::string* release_from();
   void set_allocated_from(::std::string* from);
 
+  // optional string to = 4;
+  void clear_to();
+  static const int kToFieldNumber = 4;
+  const ::std::string& to() const;
+  void set_to(const ::std::string& value);
+  void set_to(const char* value);
+  void set_to(const char* value, size_t size);
+  ::std::string* mutable_to();
+  ::std::string* release_to();
+  void set_allocated_to(::std::string* to);
+
+  // optional string timestamp = 5;
+  void clear_timestamp();
+  static const int kTimestampFieldNumber = 5;
+  const ::std::string& timestamp() const;
+  void set_timestamp(const ::std::string& value);
+  void set_timestamp(const char* value);
+  void set_timestamp(const char* value, size_t size);
+  ::std::string* mutable_timestamp();
+  ::std::string* release_timestamp();
+  void set_allocated_timestamp(::std::string* timestamp);
+
   // @@protoc_insertion_point(class_scope:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header)
  private:
 
@@ -137,6 +160,8 @@ class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr interfaceversion_;
   ::google::protobuf::internal::ArenaStringPtr from_;
+  ::google::protobuf::internal::ArenaStringPtr to_;
+  ::google::protobuf::internal::ArenaStringPtr timestamp_;
   ::google::protobuf::int32 id_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_RaspiMessages_2eproto();
@@ -204,26 +229,15 @@ class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string version = 1;
-  void clear_version();
-  static const int kVersionFieldNumber = 1;
-  const ::std::string& version() const;
-  void set_version(const ::std::string& value);
-  void set_version(const char* value);
-  void set_version(const char* value, size_t size);
-  ::std::string* mutable_version();
-  ::std::string* release_version();
-  void set_allocated_version(::std::string* version);
-
-  // optional int32 type = 2;
+  // optional int32 type = 1;
   void clear_type();
-  static const int kTypeFieldNumber = 2;
+  static const int kTypeFieldNumber = 1;
   ::google::protobuf::int32 type() const;
   void set_type(::google::protobuf::int32 value);
 
-  // optional bytes data = 3;
+  // optional bytes data = 2;
   void clear_data();
-  static const int kDataFieldNumber = 3;
+  static const int kDataFieldNumber = 2;
   const ::std::string& data() const;
   void set_data(const ::std::string& value);
   void set_data(const char* value);
@@ -237,7 +251,6 @@ class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr version_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::google::protobuf::int32 type_;
   mutable int _cached_size_;
@@ -551,6 +564,101 @@ class AliveMessage : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static AliveMessage* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class NodeStatus : public ::google::protobuf::Message {
+ public:
+  NodeStatus();
+  virtual ~NodeStatus();
+
+  NodeStatus(const NodeStatus& from);
+
+  inline NodeStatus& operator=(const NodeStatus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NodeStatus& default_instance();
+
+  void Swap(NodeStatus* other);
+
+  // implements Message ----------------------------------------------
+
+  inline NodeStatus* New() const { return New(NULL); }
+
+  NodeStatus* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NodeStatus& from);
+  void MergeFrom(const NodeStatus& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(NodeStatus* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string status = 1;
+  void clear_status();
+  static const int kStatusFieldNumber = 1;
+  const ::std::string& status() const;
+  void set_status(const ::std::string& value);
+  void set_status(const char* value);
+  void set_status(const char* value, size_t size);
+  ::std::string* mutable_status();
+  ::std::string* release_status();
+  void set_allocated_status(::std::string* status);
+
+  // optional string description = 2;
+  void clear_description();
+  static const int kDescriptionFieldNumber = 2;
+  const ::std::string& description() const;
+  void set_description(const ::std::string& value);
+  void set_description(const char* value);
+  void set_description(const char* value, size_t size);
+  ::std::string* mutable_description();
+  ::std::string* release_description();
+  void set_allocated_description(::std::string* description);
+
+  // @@protoc_insertion_point(class_scope:Ar.RasPi.Messages.NodeStatus)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr status_;
+  ::google::protobuf::internal::ArenaStringPtr description_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_RaspiMessages_2eproto();
+  friend void protobuf_AssignDesc_RaspiMessages_2eproto();
+  friend void protobuf_ShutdownFile_RaspiMessages_2eproto();
+
+  void InitAsDefaultInstance();
+  static NodeStatus* default_instance_;
+};
 // ===================================================================
 
 
@@ -661,55 +769,99 @@ inline void ArRaspiMessageEnvelope_Header::set_allocated_from(::std::string* fro
   // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.from)
 }
 
-// -------------------------------------------------------------------
-
-// ArRaspiMessageEnvelope_Body
-
-// optional string version = 1;
-inline void ArRaspiMessageEnvelope_Body::clear_version() {
-  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string to = 4;
+inline void ArRaspiMessageEnvelope_Header::clear_to() {
+  to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Body::version() const {
-  // @@protoc_insertion_point(field_get:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
-  return version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& ArRaspiMessageEnvelope_Header::to() const {
+  // @@protoc_insertion_point(field_get:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
+  return to_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Body::set_version(const ::std::string& value) {
+inline void ArRaspiMessageEnvelope_Header::set_to(const ::std::string& value) {
   
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
 }
-inline void ArRaspiMessageEnvelope_Body::set_version(const char* value) {
+inline void ArRaspiMessageEnvelope_Header::set_to(const char* value) {
   
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
 }
-inline void ArRaspiMessageEnvelope_Body::set_version(const char* value, size_t size) {
+inline void ArRaspiMessageEnvelope_Header::set_to(const char* value, size_t size) {
   
-  version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
+  // @@protoc_insertion_point(field_set_pointer:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Body::mutable_version() {
+inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_to() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
-  return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
+  return to_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Body::release_version() {
-  // @@protoc_insertion_point(field_release:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
+inline ::std::string* ArRaspiMessageEnvelope_Header::release_to() {
+  // @@protoc_insertion_point(field_release:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
   
-  return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return to_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Body::set_allocated_version(::std::string* version) {
-  if (version != NULL) {
+inline void ArRaspiMessageEnvelope_Header::set_allocated_to(::std::string* to) {
+  if (to != NULL) {
     
   } else {
     
   }
-  version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
-  // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.version)
+  to_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), to);
+  // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.to)
 }
 
-// optional int32 type = 2;
+// optional string timestamp = 5;
+inline void ArRaspiMessageEnvelope_Header::clear_timestamp() {
+  timestamp_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ArRaspiMessageEnvelope_Header::timestamp() const {
+  // @@protoc_insertion_point(field_get:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  return timestamp_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ArRaspiMessageEnvelope_Header::set_timestamp(const ::std::string& value) {
+  
+  timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+}
+inline void ArRaspiMessageEnvelope_Header::set_timestamp(const char* value) {
+  
+  timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+}
+inline void ArRaspiMessageEnvelope_Header::set_timestamp(const char* value, size_t size) {
+  
+  timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+}
+inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_timestamp() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  return timestamp_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ArRaspiMessageEnvelope_Header::release_timestamp() {
+  // @@protoc_insertion_point(field_release:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  
+  return timestamp_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ArRaspiMessageEnvelope_Header::set_allocated_timestamp(::std::string* timestamp) {
+  if (timestamp != NULL) {
+    
+  } else {
+    
+  }
+  timestamp_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), timestamp);
+  // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+}
+
+// -------------------------------------------------------------------
+
+// ArRaspiMessageEnvelope_Body
+
+// optional int32 type = 1;
 inline void ArRaspiMessageEnvelope_Body::clear_type() {
   type_ = 0;
 }
@@ -723,7 +875,7 @@ inline void ArRaspiMessageEnvelope_Body::set_type(::google::protobuf::int32 valu
   // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.ArRaspiMessageEnvelope.Body.type)
 }
 
-// optional bytes data = 3;
+// optional bytes data = 2;
 inline void ArRaspiMessageEnvelope_Body::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1089,7 +1241,101 @@ inline void AliveMessage::set_allocated_status(::std::string* status) {
   // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.AliveMessage.status)
 }
 
+// -------------------------------------------------------------------
+
+// NodeStatus
+
+// optional string status = 1;
+inline void NodeStatus::clear_status() {
+  status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NodeStatus::status() const {
+  // @@protoc_insertion_point(field_get:Ar.RasPi.Messages.NodeStatus.status)
+  return status_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NodeStatus::set_status(const ::std::string& value) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.NodeStatus.status)
+}
+inline void NodeStatus::set_status(const char* value) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.RasPi.Messages.NodeStatus.status)
+}
+inline void NodeStatus::set_status(const char* value, size_t size) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.RasPi.Messages.NodeStatus.status)
+}
+inline ::std::string* NodeStatus::mutable_status() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.RasPi.Messages.NodeStatus.status)
+  return status_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NodeStatus::release_status() {
+  // @@protoc_insertion_point(field_release:Ar.RasPi.Messages.NodeStatus.status)
+  
+  return status_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NodeStatus::set_allocated_status(::std::string* status) {
+  if (status != NULL) {
+    
+  } else {
+    
+  }
+  status_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), status);
+  // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.NodeStatus.status)
+}
+
+// optional string description = 2;
+inline void NodeStatus::clear_description() {
+  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NodeStatus::description() const {
+  // @@protoc_insertion_point(field_get:Ar.RasPi.Messages.NodeStatus.description)
+  return description_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NodeStatus::set_description(const ::std::string& value) {
+  
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.RasPi.Messages.NodeStatus.description)
+}
+inline void NodeStatus::set_description(const char* value) {
+  
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.RasPi.Messages.NodeStatus.description)
+}
+inline void NodeStatus::set_description(const char* value, size_t size) {
+  
+  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.RasPi.Messages.NodeStatus.description)
+}
+inline ::std::string* NodeStatus::mutable_description() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.RasPi.Messages.NodeStatus.description)
+  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NodeStatus::release_description() {
+  // @@protoc_insertion_point(field_release:Ar.RasPi.Messages.NodeStatus.description)
+  
+  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NodeStatus::set_allocated_description(::std::string* description) {
+  if (description != NULL) {
+    
+  } else {
+    
+  }
+  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:Ar.RasPi.Messages.NodeStatus.description)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

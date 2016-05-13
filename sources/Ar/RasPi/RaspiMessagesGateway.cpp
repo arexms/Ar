@@ -1,6 +1,7 @@
 #include <Ar/RasPi/RaspiMessagesGateway.h>
 #include <Ar/Middleware/ActiveThread.h>
 #include <Ar/RasPi/Messages/RaspiMessagesSerDes.h>
+#include <Ar/RasPi/Messages/RaspiMessageBuilder.h>
 
 namespace Ar{ namespace RasPi
 {
@@ -68,7 +69,7 @@ namespace Ar{ namespace RasPi
 
     void RaspiMessagesGateway::handleUdpPacketMessage(Ar::UdpPacketMessage *message)
     {
-        log().debug("handleUdpPacketMessage()");
+        log().debug("handleUdpPacketMessage() from route %u", message->routeId);
 
         serialize(message);
     }
@@ -80,12 +81,27 @@ namespace Ar{ namespace RasPi
         std::string data = message->data.get();
         if(!serDes.serialize(data, envelope))
         {
-            log().error("serialize() ERROR");
-            /// @todo send error message
+            log().error("serialize() 1st pahse of serialization failed- probably protobuf is incorrect.");
+            sendIncorrectProtoBuffMessage(envelope);
             return;
         }
 
         printHeaderAndBody(envelope);
+        dispatchMessage(envelope);
+        /** /@note temporary - for testing purposes
+        @{
+        */
+        if(envelope.body().type() == 2)
+        {
+            auto message = Ar::Middleware::safeNew<Ar::ResetMessage>();
+            message->byWho = "A";
+            message->reason = "end";
+            at()->sendTo("Reset", message);
+        }
+        /**
+        @}
+        */
+
     }
 
     void RaspiMessagesGateway::printHeaderAndBody(const Messages::ArRaspiMessageEnvelope &envelope) const
@@ -96,9 +112,57 @@ namespace Ar{ namespace RasPi
         log().info("\t\tinterfaceVersion: %s", envelope.header().interfaceversion().c_str());
         log().info("\t\tid: %u", envelope.header().id());
         log().info("\t\tfrom: %s", envelope.header().from().c_str());
+        log().info("\t\tto: %s", envelope.header().to().c_str());
+        log().info("\t\ttimestamp: %s", envelope.header().timestamp().c_str());
 
         log().info("\tbody");
-        log().info("\t\tversion: %s", envelope.body().version().c_str());
         log().info("\t\ttype: %u", envelope.body().type());
+    }
+
+    void RaspiMessagesGateway::sendIncorrectProtoBuffMessage(const Messages::ArRaspiMessageEnvelope &) const
+    {
+
+    }
+
+    void RaspiMessagesGateway::dispatchMessage(const Messages::ArRaspiMessageEnvelope &)
+    {
+
+    }
+
+    Messages::ArRaspiMessageEnvelope RaspiMessagesGateway::prepareEnvelope(unsigned type, const Messages::RaspiMessage &message)
+    {
+        Messages::ArRaspiMessageEnvelope envelope;
+        Messages::RaspiMessageEnvelopeBuilder builder;
+        Messages::RaspiMessageBodyBuilder bodyBuilder;
+        Messages::RaspiMessageHeaderBuilder headerBuilder;
+        bodyBuilder.setMessageAndType(type, &message);
+        builder.setBodyBuilder(&bodyBuilder);
+        builder.setHeaderBuilder(&headerBuilder);
+        builder.build(envelope);
+
+        return envelope;
+    }
+
+    UdpPacketMessage *RaspiMessagesGateway::packToUdpPacketMessage(const Messages::ArRaspiMessageEnvelope &envelope) const
+    {
+        auto msg = new UdpPacketMessage();
+        msg->length = envelope.ByteSize();
+        msg->routeId = 1;
+
+        char *data_ = Middleware::safeNewArray< char >( msg->length );
+        envelope.SerializeToArray(data_, msg->length);
+        msg->data = data_;
+
+        return msg;
+    }
+
+    void RaspiMessagesGateway::sendRaspiMessage(unsigned type, Messages::RaspiMessage &message)
+    {
+        log().debug("sendUdpPacketMessage()");
+
+        auto &&envelope = prepareEnvelope(type, message);
+        auto msg = packToUdpPacketMessage(envelope);
+
+        at()->sendTo("UdpService", msg);
     }
 } }

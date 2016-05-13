@@ -13,6 +13,7 @@ namespace Ar { namespace Middleware
 namespace Ar
 {
     struct AddUdpTrxRouteMessage;
+    struct UdpPacketMessage;
 }
 
 namespace Ar { namespace Udp
@@ -29,6 +30,8 @@ namespace Ar { namespace Udp
         void initialize();
         void run();
 
+        void sendUdpPacket(UdpPacketMessage *message);
+
     protected:
         class Route
         {
@@ -36,10 +39,12 @@ namespace Ar { namespace Udp
             Route(UdpService *service, const std::string &callbackAtName);
             ~Route();
             unsigned initialize(const UdpTrxConfig &config);
+            void sendUdpPacket(UdpPacketMessage *message);
 
         protected:
             void handleUdpPacket(DataPtr &data, unsigned length);
-            void sendUdpPacket(DataPtr &data, unsigned length);
+            void sendUdpPacketInternally(DataPtr &data, unsigned length);
+
             inline Middleware::Logger& log();
 
         private:
