@@ -8,6 +8,11 @@
 
 namespace Ar { namespace RasPi
 {
+    namespace Managers
+    {
+        class ConnectionManager;
+    }
+
     class RaspiMessagesGateway : public Ar::Middleware::ActiveObject
     {
     public:
@@ -29,5 +34,6 @@ namespace Ar { namespace RasPi
 
     private:
         Ar::Middleware::SharedPtr<Ar::Middleware::ActiveThread> _thread;
+        Ar::Middleware::SharedPtr<Managers::ConnectionManager> _cm;
     };
 } }

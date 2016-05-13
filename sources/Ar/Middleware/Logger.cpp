@@ -34,6 +34,7 @@ namespace Ar { namespace Middleware
         "      RESET",                      //  0x0C
         "UDP_SERVICE",                      //  0x0D
         "   RASPI_GW",                      //  0x0E
+        "  CONN_MNGR",                      //  0x0F
 
         "NONE"
     };

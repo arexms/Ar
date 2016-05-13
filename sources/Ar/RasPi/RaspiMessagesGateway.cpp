@@ -2,12 +2,14 @@
 #include <Ar/Middleware/ActiveThread.h>
 #include <Ar/RasPi/Messages/RaspiMessagesSerDes.h>
 #include <Ar/RasPi/Messages/RaspiMessageBuilder.h>
+#include <Ar/RasPi/Managers/ConnectionManager.h>
 
 namespace Ar{ namespace RasPi
 {
     RaspiMessagesGateway::RaspiMessagesGateway()
         : ActiveObject(Ar::Middleware::RASPI_GW)
         , _thread(safeNew<ActiveThread>())
+        , _cm(safeNewWith1Arg<Managers::ConnectionManager>(this))
     {
         _thread->start("RaspiMessagesGateway");
         attachAndInitialize(_thread.get());

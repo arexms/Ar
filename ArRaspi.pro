@@ -25,7 +25,11 @@ SOURCES += main.cpp \
     sources/Ar/Middleware/ActiveObject.cpp \
     sources/Ar/RasPi/Messages/RaspiMessages.pb.cpp \
     sources/Ar/RasPi/Messages/RaspiMessagesSerDes.cpp \
-    sources/Ar/RasPi/RaspiMessagesGateway.cpp
+    sources/Ar/RasPi/RaspiMessagesGateway.cpp \
+    sources/Ar/RasPi/Managers/RaspiManagerIf.cpp \
+    sources/Ar/RasPi/Managers/ConnectionManager.cpp \
+    sources/Ar/Middleware/Timer.cpp \
+    sources/Ar/RasPi/Messages/RaspiMessageBuilder.cpp
 
 HEADERS += \
     includes/Ar/Middleware/ActiveObject.h \
@@ -61,7 +65,12 @@ HEADERS += \
     includes/Ar/Messages.h \
     includes/Ar/RasPi/Messages/RaspiMessages.pb.h \
     includes/Ar/RasPi/Messages/RaspiMessagesSerDes.h \
-    includes/Ar/RasPi/RaspiMessagesGateway.h
+    includes/Ar/RasPi/RaspiMessagesGateway.h \
+    includes/Ar/RasPi/Managers/RaspiManagerIf.h \
+    includes/Ar/RasPi/Managers/ConnectionManager.h \
+    includes/Ar/Middleware/Timer.h \
+    includes/Ar/RasPi/Messages/RaspiMessage.h \
+    includes/Ar/RasPi/Messages/RaspiMessageBuilder.h
 
 LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_system -lpthread -lprotobuf
 
