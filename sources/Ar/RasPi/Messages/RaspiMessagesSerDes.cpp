@@ -12,7 +12,7 @@ namespace Ar { namespace RasPi { namespace Messages
         return envelope.ParseFromString(data);
     }
 
-    bool RaspiMessagesSerDes::validateEnvelope(const ArRaspiMessageEnvelope &envelope) const
+    bool RaspiMessagesSerDes::validateEnvelope(const ArRaspiMessageEnvelope &) const
     {
         return true;
     }
