@@ -65,5 +65,4 @@ HEADERS += \
 
 LIBS += -L../ArRaspi/ext/boost_1_60_0/stage/lib -lboost_system -lpthread -lprotobuf
 
-DISTFILES += \
-    includes/Ar/RasPi/Messages/RaspiMessages.proto
+DISTFILES +=

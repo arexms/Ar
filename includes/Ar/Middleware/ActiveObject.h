@@ -13,6 +13,7 @@ namespace Ar {
 
         public:
             inline ActiveObject(LogFlag flag);
+            inline virtual ~ActiveObject();
             inline void attachTo(ActiveThread *at_);
             void attachAndInitialize(ActiveThread *at_);
             inline ActiveThread* at();
@@ -31,6 +32,11 @@ namespace Ar {
         inline ActiveObject::ActiveObject(LogFlag flag)
             : _log(flag)
         {}
+
+        inline ActiveObject::~ActiveObject()
+        {
+
+        }
 
         inline void ActiveObject::attachTo(ActiveThread *at_)
         {

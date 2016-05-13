@@ -70,7 +70,6 @@ namespace Ar {
             auto msg = safeNew<LambdaMessage>();
             msg->lambda = [ao]()
             {
-                std::cout << "Asdadasd\n";
                 ao->initialize();
             };
             sendTo(ao->at(), msg);
