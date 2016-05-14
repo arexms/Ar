@@ -49,6 +49,9 @@ namespace Ar {
             void stop();
             bool sendTo(const std::string &atName, IMessage *message);
             bool sendTo(ActiveThread *at, IMessage *message);
+            bool executeWithin(const std::string &atName, std::function<void()> lambda);
+            bool executeWithin(ActiveThread *at, std::function<void()> lambda);
+
             template <typename R>
             void waitForResponseFor(std::function<void(typename R::Response*)> success);
             template <typename R>

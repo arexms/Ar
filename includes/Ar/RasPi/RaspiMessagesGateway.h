@@ -19,7 +19,7 @@ namespace Ar { namespace RasPi
         RaspiMessagesGateway();
         ~RaspiMessagesGateway();
 
-        void sendRaspiMessage(unsigned type, Messages::RaspiMessage &message);
+        void sendRaspiMessage(unsigned type, const Messages::RaspiMessage &message);
 
     protected:
         void initialize();

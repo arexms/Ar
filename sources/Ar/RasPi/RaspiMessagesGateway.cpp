@@ -158,7 +158,7 @@ namespace Ar{ namespace RasPi
         return msg;
     }
 
-    void RaspiMessagesGateway::sendRaspiMessage(unsigned type, Messages::RaspiMessage &message)
+    void RaspiMessagesGateway::sendRaspiMessage(unsigned type, const Messages::RaspiMessage &message)
     {
         log().debug("sendUdpPacketMessage()");
 

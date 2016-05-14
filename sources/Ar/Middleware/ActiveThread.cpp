@@ -65,10 +65,26 @@ namespace Ar {
             return true;
         }
 
+        bool ActiveThread::executeWithin(const std::string &atName, std::function<void()> lambda)
+        {
+            auto msg = safeNew<LambdaMessage>();
+
+            msg->lambda = lambda;
+            return sendTo(atName, msg);
+        }
+
+        bool ActiveThread::executeWithin(ActiveThread *at, std::function<void()> lambda)
+        {
+            auto msg = safeNew<LambdaMessage>();
+
+            msg->lambda = lambda;
+            return sendTo(at, msg);
+        }
+
         void ActiveThread::initializeActiveObject(ActiveObject *ao)
         {
             auto msg = safeNew<LambdaMessage>();
-            msg->lambda = [ao]()
+            msg->lambda = [ao]
             {
                 ao->initialize();
             };

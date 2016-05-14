@@ -3,6 +3,7 @@
 #include <Ar/Middleware/Utils.h>
 #include <Ar/RasPi/Messages/RaspiMessages.pb.h>
 #include <Ar/RasPi/RaspiMessagesGateway.h>
+#include <Ar/Messages.h>
 
 namespace Ar { namespace RasPi { namespace Managers
 {
@@ -37,6 +38,9 @@ namespace Ar { namespace RasPi { namespace Managers
         nodeStatus.set_status("Ok");
         nodeStatus.set_description("none");
 
-        _gateway->sendRaspiMessage(3, nodeStatus);
+        at()->executeWithin(_gateway->at(), [=]
+        {
+            this->_gateway->sendRaspiMessage(3, nodeStatus);
+        });
     }
 } } }

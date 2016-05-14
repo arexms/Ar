@@ -58,6 +58,6 @@ add_executable(ArRaspi_tests ${TESTS_LIST})
 target_include_directories(ArRaspi_tests PUBLIC ../ext/googletest/googletest/include)
 target_include_directories(ArRaspi_tests PUBLIC ../ext/googletest/googlemock/include)
 
-target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} pthread protobuf)
+target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} gcov pthread protobuf)
 target_link_libraries(ArRaspi_tests arraspi ${Boost_LIBRARIES} gcov protobuf gmock gmock_main pthread)
 
