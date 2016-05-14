@@ -187,13 +187,26 @@ int B::i = 0;*/
 
 int main()
 {
-    Ar::Udp::UdpService udpService;
-    udpService.initialize();
-    udpService.run();
-    Ar::Reset::ResetManager resetManager;
-    Ar::Raspi::RaspiMessagesGateway raspiMessagesGateway;
 
-    resetManager.idle();
+    for(;;)
+    {
+        Ar::Reset::ResetManager resetManager;
+        Ar::Udp::UdpService udpService;
+        udpService.initialize();
+        udpService.run();
+        Ar::Raspi::RaspiMessagesGateway raspiMessagesGateway;
+
+        auto resetType = resetManager.idle();
+
+        if(resetType == Ar::Reset::ResetManager::SW_RESET)
+        {
+            continue;
+        }
+        if(resetType == Ar::Reset::ResetManager::SW_EXIT)
+        {
+            break;
+        }
+    }
 
     return 0;
 }

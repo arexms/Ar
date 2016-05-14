@@ -44,6 +44,7 @@ class NodeStatus;
 class RaspiMessageEnvelope;
 class RaspiMessageEnvelope_Body;
 class RaspiMessageEnvelope_Header;
+class Reset;
 
 // ===================================================================
 
@@ -658,6 +659,101 @@ class NodeStatus : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static NodeStatus* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Reset : public ::google::protobuf::Message {
+ public:
+  Reset();
+  virtual ~Reset();
+
+  Reset(const Reset& from);
+
+  inline Reset& operator=(const Reset& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Reset& default_instance();
+
+  void Swap(Reset* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Reset* New() const { return New(NULL); }
+
+  Reset* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Reset& from);
+  void MergeFrom(const Reset& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Reset* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string byWho = 1;
+  void clear_bywho();
+  static const int kByWhoFieldNumber = 1;
+  const ::std::string& bywho() const;
+  void set_bywho(const ::std::string& value);
+  void set_bywho(const char* value);
+  void set_bywho(const char* value, size_t size);
+  ::std::string* mutable_bywho();
+  ::std::string* release_bywho();
+  void set_allocated_bywho(::std::string* bywho);
+
+  // optional string reason = 2;
+  void clear_reason();
+  static const int kReasonFieldNumber = 2;
+  const ::std::string& reason() const;
+  void set_reason(const ::std::string& value);
+  void set_reason(const char* value);
+  void set_reason(const char* value, size_t size);
+  ::std::string* mutable_reason();
+  ::std::string* release_reason();
+  void set_allocated_reason(::std::string* reason);
+
+  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.Reset)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr bywho_;
+  ::google::protobuf::internal::ArenaStringPtr reason_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_RaspiMessages_2eproto();
+  friend void protobuf_AssignDesc_RaspiMessages_2eproto();
+  friend void protobuf_ShutdownFile_RaspiMessages_2eproto();
+
+  void InitAsDefaultInstance();
+  static Reset* default_instance_;
 };
 // ===================================================================
 
@@ -1333,7 +1429,101 @@ inline void NodeStatus::set_allocated_description(::std::string* description) {
   // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.NodeStatus.description)
 }
 
+// -------------------------------------------------------------------
+
+// Reset
+
+// optional string byWho = 1;
+inline void Reset::clear_bywho() {
+  bywho_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Reset::bywho() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.Reset.byWho)
+  return bywho_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reset::set_bywho(const ::std::string& value) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.Reset.byWho)
+}
+inline void Reset::set_bywho(const char* value) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.Reset.byWho)
+}
+inline void Reset::set_bywho(const char* value, size_t size) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.Reset.byWho)
+}
+inline ::std::string* Reset::mutable_bywho() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.Reset.byWho)
+  return bywho_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Reset::release_bywho() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.Reset.byWho)
+  
+  return bywho_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reset::set_allocated_bywho(::std::string* bywho) {
+  if (bywho != NULL) {
+    
+  } else {
+    
+  }
+  bywho_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bywho);
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.Reset.byWho)
+}
+
+// optional string reason = 2;
+inline void Reset::clear_reason() {
+  reason_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Reset::reason() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.Reset.reason)
+  return reason_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reset::set_reason(const ::std::string& value) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.Reset.reason)
+}
+inline void Reset::set_reason(const char* value) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.Reset.reason)
+}
+inline void Reset::set_reason(const char* value, size_t size) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.Reset.reason)
+}
+inline ::std::string* Reset::mutable_reason() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.Reset.reason)
+  return reason_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Reset::release_reason() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.Reset.reason)
+  
+  return reason_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Reset::set_allocated_reason(::std::string* reason) {
+  if (reason != NULL) {
+    
+  } else {
+    
+  }
+  reason_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), reason);
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.Reset.reason)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

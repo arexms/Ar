@@ -41,6 +41,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NodeStatus_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NodeStatus_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Reset_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Reset_reflection_ = NULL;
 
 }  // namespace
 
@@ -152,6 +155,22 @@ void protobuf_AssignDesc_RaspiMessages_2eproto() {
       sizeof(NodeStatus),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NodeStatus, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NodeStatus, _is_default_instance_));
+  Reset_descriptor_ = file->message_type(4);
+  static const int Reset_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Reset, bywho_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Reset, reason_),
+  };
+  Reset_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      Reset_descriptor_,
+      Reset::default_instance_,
+      Reset_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(Reset),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Reset, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Reset, _is_default_instance_));
 }
 
 namespace {
@@ -176,6 +195,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
       AliveMessage_descriptor_, &AliveMessage::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       NodeStatus_descriptor_, &NodeStatus::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      Reset_descriptor_, &Reset::default_instance());
 }
 
 }  // namespace
@@ -193,6 +214,8 @@ void protobuf_ShutdownFile_RaspiMessages_2eproto() {
   delete AliveMessage_reflection_;
   delete NodeStatus::default_instance_;
   delete NodeStatus_reflection_;
+  delete Reset::default_instance_;
+  delete Reset_reflection_;
 }
 
 void protobuf_AddDesc_RaspiMessages_2eproto() {
@@ -214,7 +237,8 @@ void protobuf_AddDesc_RaspiMessages_2eproto() {
     "(\t\022\014\n\004port\030\003 \001(\005\"\?\n\014AliveMessage\022\014\n\004name"
     "\030\001 \001(\t\022\021\n\ttimestamp\030\002 \001(\t\022\016\n\006status\030\003 \001("
     "\t\"1\n\nNodeStatus\022\016\n\006status\030\001 \001(\t\022\023\n\013descr"
-    "iption\030\002 \001(\tb\006proto3", 500);
+    "iption\030\002 \001(\t\"&\n\005Reset\022\r\n\005byWho\030\001 \001(\t\022\016\n\006"
+    "reason\030\002 \001(\tb\006proto3", 540);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "RaspiMessages.proto", &protobuf_RegisterTypes);
   RaspiMessageEnvelope::default_instance_ = new RaspiMessageEnvelope();
@@ -223,12 +247,14 @@ void protobuf_AddDesc_RaspiMessages_2eproto() {
   NewNodeMessage::default_instance_ = new NewNodeMessage();
   AliveMessage::default_instance_ = new AliveMessage();
   NodeStatus::default_instance_ = new NodeStatus();
+  Reset::default_instance_ = new Reset();
   RaspiMessageEnvelope::default_instance_->InitAsDefaultInstance();
   RaspiMessageEnvelope_Header::default_instance_->InitAsDefaultInstance();
   RaspiMessageEnvelope_Body::default_instance_->InitAsDefaultInstance();
   NewNodeMessage::default_instance_->InitAsDefaultInstance();
   AliveMessage::default_instance_->InitAsDefaultInstance();
   NodeStatus::default_instance_->InitAsDefaultInstance();
+  Reset::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_RaspiMessages_2eproto);
 }
 
@@ -2821,6 +2847,384 @@ void NodeStatus::clear_description() {
   }
   description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
   // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.NodeStatus.description)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Reset::kByWhoFieldNumber;
+const int Reset::kReasonFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Reset::Reset()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:Ar.Raspi.Messages.Reset)
+}
+
+void Reset::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+Reset::Reset(const Reset& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:Ar.Raspi.Messages.Reset)
+}
+
+void Reset::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  bywho_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  reason_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+Reset::~Reset() {
+  // @@protoc_insertion_point(destructor:Ar.Raspi.Messages.Reset)
+  SharedDtor();
+}
+
+void Reset::SharedDtor() {
+  bywho_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  reason_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void Reset::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Reset::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Reset_descriptor_;
+}
+
+const Reset& Reset::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_RaspiMessages_2eproto();
+  return *default_instance_;
+}
+
+Reset* Reset::default_instance_ = NULL;
+
+Reset* Reset::New(::google::protobuf::Arena* arena) const {
+  Reset* n = new Reset;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Reset::Clear() {
+// @@protoc_insertion_point(message_clear_start:Ar.Raspi.Messages.Reset)
+  bywho_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  reason_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool Reset::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:Ar.Raspi.Messages.Reset)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string byWho = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_bywho()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->bywho().data(), this->bywho().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "Ar.Raspi.Messages.Reset.byWho"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_reason;
+        break;
+      }
+
+      // optional string reason = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_reason:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_reason()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->reason().data(), this->reason().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "Ar.Raspi.Messages.Reset.reason"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:Ar.Raspi.Messages.Reset)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:Ar.Raspi.Messages.Reset)
+  return false;
+#undef DO_
+}
+
+void Reset::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:Ar.Raspi.Messages.Reset)
+  // optional string byWho = 1;
+  if (this->bywho().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bywho().data(), this->bywho().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Ar.Raspi.Messages.Reset.byWho");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->bywho(), output);
+  }
+
+  // optional string reason = 2;
+  if (this->reason().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->reason().data(), this->reason().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Ar.Raspi.Messages.Reset.reason");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->reason(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:Ar.Raspi.Messages.Reset)
+}
+
+::google::protobuf::uint8* Reset::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Ar.Raspi.Messages.Reset)
+  // optional string byWho = 1;
+  if (this->bywho().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->bywho().data(), this->bywho().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Ar.Raspi.Messages.Reset.byWho");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->bywho(), target);
+  }
+
+  // optional string reason = 2;
+  if (this->reason().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->reason().data(), this->reason().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Ar.Raspi.Messages.Reset.reason");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->reason(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:Ar.Raspi.Messages.Reset)
+  return target;
+}
+
+int Reset::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:Ar.Raspi.Messages.Reset)
+  int total_size = 0;
+
+  // optional string byWho = 1;
+  if (this->bywho().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->bywho());
+  }
+
+  // optional string reason = 2;
+  if (this->reason().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->reason());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Reset::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Ar.Raspi.Messages.Reset)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const Reset* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Reset>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Ar.Raspi.Messages.Reset)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Ar.Raspi.Messages.Reset)
+    MergeFrom(*source);
+  }
+}
+
+void Reset::MergeFrom(const Reset& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Ar.Raspi.Messages.Reset)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.bywho().size() > 0) {
+
+    bywho_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bywho_);
+  }
+  if (from.reason().size() > 0) {
+
+    reason_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.reason_);
+  }
+}
+
+void Reset::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Ar.Raspi.Messages.Reset)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Reset::CopyFrom(const Reset& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Ar.Raspi.Messages.Reset)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Reset::IsInitialized() const {
+
+  return true;
+}
+
+void Reset::Swap(Reset* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Reset::InternalSwap(Reset* other) {
+  bywho_.Swap(&other->bywho_);
+  reason_.Swap(&other->reason_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Reset::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Reset_descriptor_;
+  metadata.reflection = Reset_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Reset
+
+// optional string byWho = 1;
+void Reset::clear_bywho() {
+  bywho_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& Reset::bywho() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.Reset.byWho)
+  return bywho_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Reset::set_bywho(const ::std::string& value) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.Reset.byWho)
+}
+ void Reset::set_bywho(const char* value) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.Reset.byWho)
+}
+ void Reset::set_bywho(const char* value, size_t size) {
+  
+  bywho_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.Reset.byWho)
+}
+ ::std::string* Reset::mutable_bywho() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.Reset.byWho)
+  return bywho_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Reset::release_bywho() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.Reset.byWho)
+  
+  return bywho_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Reset::set_allocated_bywho(::std::string* bywho) {
+  if (bywho != NULL) {
+    
+  } else {
+    
+  }
+  bywho_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), bywho);
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.Reset.byWho)
+}
+
+// optional string reason = 2;
+void Reset::clear_reason() {
+  reason_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& Reset::reason() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.Reset.reason)
+  return reason_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Reset::set_reason(const ::std::string& value) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.Reset.reason)
+}
+ void Reset::set_reason(const char* value) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.Reset.reason)
+}
+ void Reset::set_reason(const char* value, size_t size) {
+  
+  reason_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.Reset.reason)
+}
+ ::std::string* Reset::mutable_reason() {
+  
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.Reset.reason)
+  return reason_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* Reset::release_reason() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.Reset.reason)
+  
+  return reason_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void Reset::set_allocated_reason(::std::string* reason) {
+  if (reason != NULL) {
+    
+  } else {
+    
+  }
+  reason_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), reason);
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.Reset.reason)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

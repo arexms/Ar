@@ -9,9 +9,18 @@ namespace Ar { namespace Reset
     class ResetManager : public Ar::Middleware::ActiveObject
     {
     public:
-        ResetManager();
+        enum
+        {
+            SW_RESET = 1,
+            SW_EXIT = 2,
 
-        void idle();
+            NONE
+        };
+
+        ResetManager();
+        ~ResetManager();
+
+        int idle();
 
     protected:
         void reset(ResetMessage *message);

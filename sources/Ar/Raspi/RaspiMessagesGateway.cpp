@@ -10,6 +10,7 @@ namespace Ar{ namespace Raspi
         : ActiveObject(Ar::Middleware::RASPI_GW)
         , _thread(safeNew<ActiveThread>())
         , _cm(safeNewWith1Arg<Managers::ConnectionManager>(this))
+        , _routeId(0)
     {
         _thread->start("RaspiMessagesGateway");
         attachAndInitialize(_thread.get());
@@ -56,6 +57,8 @@ namespace Ar{ namespace Raspi
                 this->log().info("initialize() Route %i configured:", resp->routeId);
                 this->log().info("initialize() \t RX: %s:%i", _config.rx.ip.c_str(), _config.rx.port);
                 this->log().info("initialize() \t TX: %s:%i", _config.tx.ip.c_str(), _config.tx.port);
+
+                _routeId = resp->routeId;
             }
             else
             {
@@ -93,10 +96,10 @@ namespace Ar{ namespace Raspi
         /** /@note temporary - for testing purposes
         @{
         */
-        if(envelope.body().type() == 2)
+        if(envelope.body().type() == 3)
         {
             auto message = Ar::Middleware::safeNew<Ar::ResetMessage>();
-            message->byWho = "A";
+            message->byWho = "ext";
             message->reason = "end";
             at()->sendTo("Reset", message);
         }
@@ -149,7 +152,7 @@ namespace Ar{ namespace Raspi
     {
         auto msg = new UdpPacketMessage();
         msg->length = envelope.ByteSize();
-        msg->routeId = 1;
+        msg->routeId = _routeId;
 
         char *data_ = Middleware::safeNewArray< char >( msg->length );
         envelope.SerializeToArray(data_, msg->length);

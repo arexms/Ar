@@ -35,5 +35,6 @@ namespace Ar { namespace Raspi
     private:
         Ar::Middleware::SharedPtr<Ar::Middleware::ActiveThread> _thread;
         Ar::Middleware::SharedPtr<Managers::ConnectionManager> _cm;
+        unsigned _routeId;
     };
 } }

@@ -12,19 +12,29 @@ namespace Ar { namespace Reset
         , _resetThread(safeNew<ActiveThread>())
 
     {
+        log().info("Starting...");
+
         _resetThread->start("Reset");
         attachTo(_resetThread.get());
 
         at()->registerReceiverForMessage(this, &ResetManager::reset);
     }
 
-    void ResetManager::idle()
+    ResetManager::~ResetManager()
+    {
+        log().info("Reset almost finished...");
+        log().info("---------------------------------------------------------");
+    }
+
+    int ResetManager::idle()
     {
         while(!_executeReset)
         {
             using namespace std::literals;
             std::this_thread::sleep_for(1s);
         }
+
+        return SW_RESET;
     }
 
     void ResetManager::reset(ResetMessage *message)

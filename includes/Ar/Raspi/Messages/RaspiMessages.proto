@@ -43,3 +43,9 @@ message NodeStatus
     string description = 2;
 }
 
+message Reset
+{
+    string byWho = 1;
+    string reason = 2;
+}
+
