@@ -7,11 +7,11 @@ namespace Ar { namespace Raspi { namespace Messages
     class RaspiMessagesSerDes
     {
     public:
-        bool serialize(const std::string &data, ArRaspiMessageEnvelope &envelope);
+        bool serialize(const std::string &data, RaspiMessageEnvelope &envelope);
 
     protected:
-        bool serializeToEnvelope(const std::string &data, ArRaspiMessageEnvelope &envelope);
-        bool validateEnvelope(const ArRaspiMessageEnvelope &envelope) const;
+        bool serializeToEnvelope(const std::string &data, RaspiMessageEnvelope &envelope);
+        bool validateEnvelope(const RaspiMessageEnvelope &envelope) const;
 
     };
 

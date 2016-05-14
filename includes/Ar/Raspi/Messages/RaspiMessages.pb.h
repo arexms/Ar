@@ -39,40 +39,40 @@ void protobuf_AssignDesc_RaspiMessages_2eproto();
 void protobuf_ShutdownFile_RaspiMessages_2eproto();
 
 class AliveMessage;
-class ArRaspiMessageEnvelope;
-class ArRaspiMessageEnvelope_Body;
-class ArRaspiMessageEnvelope_Header;
 class NewNodeMessage;
 class NodeStatus;
+class RaspiMessageEnvelope;
+class RaspiMessageEnvelope_Body;
+class RaspiMessageEnvelope_Header;
 
 // ===================================================================
 
-class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
+class RaspiMessageEnvelope_Header : public ::google::protobuf::Message {
  public:
-  ArRaspiMessageEnvelope_Header();
-  virtual ~ArRaspiMessageEnvelope_Header();
+  RaspiMessageEnvelope_Header();
+  virtual ~RaspiMessageEnvelope_Header();
 
-  ArRaspiMessageEnvelope_Header(const ArRaspiMessageEnvelope_Header& from);
+  RaspiMessageEnvelope_Header(const RaspiMessageEnvelope_Header& from);
 
-  inline ArRaspiMessageEnvelope_Header& operator=(const ArRaspiMessageEnvelope_Header& from) {
+  inline RaspiMessageEnvelope_Header& operator=(const RaspiMessageEnvelope_Header& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ArRaspiMessageEnvelope_Header& default_instance();
+  static const RaspiMessageEnvelope_Header& default_instance();
 
-  void Swap(ArRaspiMessageEnvelope_Header* other);
+  void Swap(RaspiMessageEnvelope_Header* other);
 
   // implements Message ----------------------------------------------
 
-  inline ArRaspiMessageEnvelope_Header* New() const { return New(NULL); }
+  inline RaspiMessageEnvelope_Header* New() const { return New(NULL); }
 
-  ArRaspiMessageEnvelope_Header* New(::google::protobuf::Arena* arena) const;
+  RaspiMessageEnvelope_Header* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ArRaspiMessageEnvelope_Header& from);
-  void MergeFrom(const ArRaspiMessageEnvelope_Header& from);
+  void CopyFrom(const RaspiMessageEnvelope_Header& from);
+  void MergeFrom(const RaspiMessageEnvelope_Header& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -87,7 +87,7 @@ class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(ArRaspiMessageEnvelope_Header* other);
+  void InternalSwap(RaspiMessageEnvelope_Header* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -153,7 +153,7 @@ class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
   ::std::string* release_timestamp();
   void set_allocated_timestamp(::std::string* timestamp);
 
-  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header)
+  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.RaspiMessageEnvelope.Header)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -169,36 +169,36 @@ class ArRaspiMessageEnvelope_Header : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_RaspiMessages_2eproto();
 
   void InitAsDefaultInstance();
-  static ArRaspiMessageEnvelope_Header* default_instance_;
+  static RaspiMessageEnvelope_Header* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
+class RaspiMessageEnvelope_Body : public ::google::protobuf::Message {
  public:
-  ArRaspiMessageEnvelope_Body();
-  virtual ~ArRaspiMessageEnvelope_Body();
+  RaspiMessageEnvelope_Body();
+  virtual ~RaspiMessageEnvelope_Body();
 
-  ArRaspiMessageEnvelope_Body(const ArRaspiMessageEnvelope_Body& from);
+  RaspiMessageEnvelope_Body(const RaspiMessageEnvelope_Body& from);
 
-  inline ArRaspiMessageEnvelope_Body& operator=(const ArRaspiMessageEnvelope_Body& from) {
+  inline RaspiMessageEnvelope_Body& operator=(const RaspiMessageEnvelope_Body& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ArRaspiMessageEnvelope_Body& default_instance();
+  static const RaspiMessageEnvelope_Body& default_instance();
 
-  void Swap(ArRaspiMessageEnvelope_Body* other);
+  void Swap(RaspiMessageEnvelope_Body* other);
 
   // implements Message ----------------------------------------------
 
-  inline ArRaspiMessageEnvelope_Body* New() const { return New(NULL); }
+  inline RaspiMessageEnvelope_Body* New() const { return New(NULL); }
 
-  ArRaspiMessageEnvelope_Body* New(::google::protobuf::Arena* arena) const;
+  RaspiMessageEnvelope_Body* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ArRaspiMessageEnvelope_Body& from);
-  void MergeFrom(const ArRaspiMessageEnvelope_Body& from);
+  void CopyFrom(const RaspiMessageEnvelope_Body& from);
+  void MergeFrom(const RaspiMessageEnvelope_Body& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -213,7 +213,7 @@ class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(ArRaspiMessageEnvelope_Body* other);
+  void InternalSwap(RaspiMessageEnvelope_Body* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -246,7 +246,7 @@ class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body)
+  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.RaspiMessageEnvelope.Body)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -259,36 +259,36 @@ class ArRaspiMessageEnvelope_Body : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_RaspiMessages_2eproto();
 
   void InitAsDefaultInstance();
-  static ArRaspiMessageEnvelope_Body* default_instance_;
+  static RaspiMessageEnvelope_Body* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class ArRaspiMessageEnvelope : public ::google::protobuf::Message {
+class RaspiMessageEnvelope : public ::google::protobuf::Message {
  public:
-  ArRaspiMessageEnvelope();
-  virtual ~ArRaspiMessageEnvelope();
+  RaspiMessageEnvelope();
+  virtual ~RaspiMessageEnvelope();
 
-  ArRaspiMessageEnvelope(const ArRaspiMessageEnvelope& from);
+  RaspiMessageEnvelope(const RaspiMessageEnvelope& from);
 
-  inline ArRaspiMessageEnvelope& operator=(const ArRaspiMessageEnvelope& from) {
+  inline RaspiMessageEnvelope& operator=(const RaspiMessageEnvelope& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ArRaspiMessageEnvelope& default_instance();
+  static const RaspiMessageEnvelope& default_instance();
 
-  void Swap(ArRaspiMessageEnvelope* other);
+  void Swap(RaspiMessageEnvelope* other);
 
   // implements Message ----------------------------------------------
 
-  inline ArRaspiMessageEnvelope* New() const { return New(NULL); }
+  inline RaspiMessageEnvelope* New() const { return New(NULL); }
 
-  ArRaspiMessageEnvelope* New(::google::protobuf::Arena* arena) const;
+  RaspiMessageEnvelope* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ArRaspiMessageEnvelope& from);
-  void MergeFrom(const ArRaspiMessageEnvelope& from);
+  void CopyFrom(const RaspiMessageEnvelope& from);
+  void MergeFrom(const RaspiMessageEnvelope& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -303,7 +303,7 @@ class ArRaspiMessageEnvelope : public ::google::protobuf::Message {
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(ArRaspiMessageEnvelope* other);
+  void InternalSwap(RaspiMessageEnvelope* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -317,43 +317,43 @@ class ArRaspiMessageEnvelope : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef ArRaspiMessageEnvelope_Header Header;
-  typedef ArRaspiMessageEnvelope_Body Body;
+  typedef RaspiMessageEnvelope_Header Header;
+  typedef RaspiMessageEnvelope_Body Body;
 
   // accessors -------------------------------------------------------
 
-  // optional .Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header header = 1;
+  // optional .Ar.Raspi.Messages.RaspiMessageEnvelope.Header header = 1;
   bool has_header() const;
   void clear_header();
   static const int kHeaderFieldNumber = 1;
-  const ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header& header() const;
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* mutable_header();
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* release_header();
-  void set_allocated_header(::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* header);
+  const ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header& header() const;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* mutable_header();
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* release_header();
+  void set_allocated_header(::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* header);
 
-  // optional .Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body body = 2;
+  // optional .Ar.Raspi.Messages.RaspiMessageEnvelope.Body body = 2;
   bool has_body() const;
   void clear_body();
   static const int kBodyFieldNumber = 2;
-  const ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body& body() const;
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* mutable_body();
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* release_body();
-  void set_allocated_body(::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* body);
+  const ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body& body() const;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* mutable_body();
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* release_body();
+  void set_allocated_body(::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* body);
 
-  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.ArRaspiMessageEnvelope)
+  // @@protoc_insertion_point(class_scope:Ar.Raspi.Messages.RaspiMessageEnvelope)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* header_;
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* body_;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* header_;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* body_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_RaspiMessages_2eproto();
   friend void protobuf_AssignDesc_RaspiMessages_2eproto();
   friend void protobuf_ShutdownFile_RaspiMessages_2eproto();
 
   void InitAsDefaultInstance();
-  static ArRaspiMessageEnvelope* default_instance_;
+  static RaspiMessageEnvelope* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -665,292 +665,292 @@ class NodeStatus : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// ArRaspiMessageEnvelope_Header
+// RaspiMessageEnvelope_Header
 
 // optional string interfaceVersion = 1;
-inline void ArRaspiMessageEnvelope_Header::clear_interfaceversion() {
+inline void RaspiMessageEnvelope_Header::clear_interfaceversion() {
   interfaceversion_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Header::interfaceversion() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+inline const ::std::string& RaspiMessageEnvelope_Header::interfaceversion() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
   return interfaceversion_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_interfaceversion(const ::std::string& value) {
+inline void RaspiMessageEnvelope_Header::set_interfaceversion(const ::std::string& value) {
   
   interfaceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
 }
-inline void ArRaspiMessageEnvelope_Header::set_interfaceversion(const char* value) {
+inline void RaspiMessageEnvelope_Header::set_interfaceversion(const char* value) {
   
   interfaceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
 }
-inline void ArRaspiMessageEnvelope_Header::set_interfaceversion(const char* value, size_t size) {
+inline void RaspiMessageEnvelope_Header::set_interfaceversion(const char* value, size_t size) {
   
   interfaceversion_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_interfaceversion() {
+inline ::std::string* RaspiMessageEnvelope_Header::mutable_interfaceversion() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
   return interfaceversion_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::release_interfaceversion() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+inline ::std::string* RaspiMessageEnvelope_Header::release_interfaceversion() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
   
   return interfaceversion_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_allocated_interfaceversion(::std::string* interfaceversion) {
+inline void RaspiMessageEnvelope_Header::set_allocated_interfaceversion(::std::string* interfaceversion) {
   if (interfaceversion != NULL) {
     
   } else {
     
   }
   interfaceversion_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), interfaceversion);
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.interfaceVersion)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.interfaceVersion)
 }
 
 // optional int32 id = 2;
-inline void ArRaspiMessageEnvelope_Header::clear_id() {
+inline void RaspiMessageEnvelope_Header::clear_id() {
   id_ = 0;
 }
-inline ::google::protobuf::int32 ArRaspiMessageEnvelope_Header::id() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.id)
+inline ::google::protobuf::int32 RaspiMessageEnvelope_Header::id() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.id)
   return id_;
 }
-inline void ArRaspiMessageEnvelope_Header::set_id(::google::protobuf::int32 value) {
+inline void RaspiMessageEnvelope_Header::set_id(::google::protobuf::int32 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.id)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.id)
 }
 
 // optional string from = 3;
-inline void ArRaspiMessageEnvelope_Header::clear_from() {
+inline void RaspiMessageEnvelope_Header::clear_from() {
   from_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Header::from() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+inline const ::std::string& RaspiMessageEnvelope_Header::from() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
   return from_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_from(const ::std::string& value) {
+inline void RaspiMessageEnvelope_Header::set_from(const ::std::string& value) {
   
   from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
 }
-inline void ArRaspiMessageEnvelope_Header::set_from(const char* value) {
+inline void RaspiMessageEnvelope_Header::set_from(const char* value) {
   
   from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
 }
-inline void ArRaspiMessageEnvelope_Header::set_from(const char* value, size_t size) {
+inline void RaspiMessageEnvelope_Header::set_from(const char* value, size_t size) {
   
   from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_from() {
+inline ::std::string* RaspiMessageEnvelope_Header::mutable_from() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
   return from_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::release_from() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+inline ::std::string* RaspiMessageEnvelope_Header::release_from() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
   
   return from_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_allocated_from(::std::string* from) {
+inline void RaspiMessageEnvelope_Header::set_allocated_from(::std::string* from) {
   if (from != NULL) {
     
   } else {
     
   }
   from_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from);
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.from)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.from)
 }
 
 // optional string to = 4;
-inline void ArRaspiMessageEnvelope_Header::clear_to() {
+inline void RaspiMessageEnvelope_Header::clear_to() {
   to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Header::to() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+inline const ::std::string& RaspiMessageEnvelope_Header::to() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
   return to_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_to(const ::std::string& value) {
+inline void RaspiMessageEnvelope_Header::set_to(const ::std::string& value) {
   
   to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
 }
-inline void ArRaspiMessageEnvelope_Header::set_to(const char* value) {
+inline void RaspiMessageEnvelope_Header::set_to(const char* value) {
   
   to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
 }
-inline void ArRaspiMessageEnvelope_Header::set_to(const char* value, size_t size) {
+inline void RaspiMessageEnvelope_Header::set_to(const char* value, size_t size) {
   
   to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_to() {
+inline ::std::string* RaspiMessageEnvelope_Header::mutable_to() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
   return to_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::release_to() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+inline ::std::string* RaspiMessageEnvelope_Header::release_to() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
   
   return to_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_allocated_to(::std::string* to) {
+inline void RaspiMessageEnvelope_Header::set_allocated_to(::std::string* to) {
   if (to != NULL) {
     
   } else {
     
   }
   to_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), to);
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.to)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.to)
 }
 
 // optional string timestamp = 5;
-inline void ArRaspiMessageEnvelope_Header::clear_timestamp() {
+inline void RaspiMessageEnvelope_Header::clear_timestamp() {
   timestamp_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Header::timestamp() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+inline const ::std::string& RaspiMessageEnvelope_Header::timestamp() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
   return timestamp_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_timestamp(const ::std::string& value) {
+inline void RaspiMessageEnvelope_Header::set_timestamp(const ::std::string& value) {
   
   timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
 }
-inline void ArRaspiMessageEnvelope_Header::set_timestamp(const char* value) {
+inline void RaspiMessageEnvelope_Header::set_timestamp(const char* value) {
   
   timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
 }
-inline void ArRaspiMessageEnvelope_Header::set_timestamp(const char* value, size_t size) {
+inline void RaspiMessageEnvelope_Header::set_timestamp(const char* value, size_t size) {
   
   timestamp_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::mutable_timestamp() {
+inline ::std::string* RaspiMessageEnvelope_Header::mutable_timestamp() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
   return timestamp_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Header::release_timestamp() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+inline ::std::string* RaspiMessageEnvelope_Header::release_timestamp() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
   
   return timestamp_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Header::set_allocated_timestamp(::std::string* timestamp) {
+inline void RaspiMessageEnvelope_Header::set_allocated_timestamp(::std::string* timestamp) {
   if (timestamp != NULL) {
     
   } else {
     
   }
   timestamp_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), timestamp);
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header.timestamp)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.Header.timestamp)
 }
 
 // -------------------------------------------------------------------
 
-// ArRaspiMessageEnvelope_Body
+// RaspiMessageEnvelope_Body
 
 // optional int32 type = 1;
-inline void ArRaspiMessageEnvelope_Body::clear_type() {
+inline void RaspiMessageEnvelope_Body::clear_type() {
   type_ = 0;
 }
-inline ::google::protobuf::int32 ArRaspiMessageEnvelope_Body::type() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.type)
+inline ::google::protobuf::int32 RaspiMessageEnvelope_Body::type() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.type)
   return type_;
 }
-inline void ArRaspiMessageEnvelope_Body::set_type(::google::protobuf::int32 value) {
+inline void RaspiMessageEnvelope_Body::set_type(::google::protobuf::int32 value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.type)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.type)
 }
 
 // optional bytes data = 2;
-inline void ArRaspiMessageEnvelope_Body::clear_data() {
+inline void RaspiMessageEnvelope_Body::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ArRaspiMessageEnvelope_Body::data() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+inline const ::std::string& RaspiMessageEnvelope_Body::data() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
   return data_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Body::set_data(const ::std::string& value) {
+inline void RaspiMessageEnvelope_Body::set_data(const ::std::string& value) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+  // @@protoc_insertion_point(field_set:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
 }
-inline void ArRaspiMessageEnvelope_Body::set_data(const char* value) {
+inline void RaspiMessageEnvelope_Body::set_data(const char* value) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+  // @@protoc_insertion_point(field_set_char:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
 }
-inline void ArRaspiMessageEnvelope_Body::set_data(const void* value, size_t size) {
+inline void RaspiMessageEnvelope_Body::set_data(const void* value, size_t size) {
   
   data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+  // @@protoc_insertion_point(field_set_pointer:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
 }
-inline ::std::string* ArRaspiMessageEnvelope_Body::mutable_data() {
+inline ::std::string* RaspiMessageEnvelope_Body::mutable_data() {
   
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
   return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ArRaspiMessageEnvelope_Body::release_data() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+inline ::std::string* RaspiMessageEnvelope_Body::release_data() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
   
   return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ArRaspiMessageEnvelope_Body::set_allocated_data(::std::string* data) {
+inline void RaspiMessageEnvelope_Body::set_allocated_data(::std::string* data) {
   if (data != NULL) {
     
   } else {
     
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body.data)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.Body.data)
 }
 
 // -------------------------------------------------------------------
 
-// ArRaspiMessageEnvelope
+// RaspiMessageEnvelope
 
-// optional .Ar.Raspi.Messages.ArRaspiMessageEnvelope.Header header = 1;
-inline bool ArRaspiMessageEnvelope::has_header() const {
+// optional .Ar.Raspi.Messages.RaspiMessageEnvelope.Header header = 1;
+inline bool RaspiMessageEnvelope::has_header() const {
   return !_is_default_instance_ && header_ != NULL;
 }
-inline void ArRaspiMessageEnvelope::clear_header() {
+inline void RaspiMessageEnvelope::clear_header() {
   if (GetArenaNoVirtual() == NULL && header_ != NULL) delete header_;
   header_ = NULL;
 }
-inline const ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header& ArRaspiMessageEnvelope::header() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.header)
+inline const ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header& RaspiMessageEnvelope::header() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.header)
   return header_ != NULL ? *header_ : *default_instance_->header_;
 }
-inline ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* ArRaspiMessageEnvelope::mutable_header() {
+inline ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* RaspiMessageEnvelope::mutable_header() {
   
   if (header_ == NULL) {
-    header_ = new ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header;
+    header_ = new ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header;
   }
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.header)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.header)
   return header_;
 }
-inline ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* ArRaspiMessageEnvelope::release_header() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.header)
+inline ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* RaspiMessageEnvelope::release_header() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.header)
   
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* temp = header_;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* temp = header_;
   header_ = NULL;
   return temp;
 }
-inline void ArRaspiMessageEnvelope::set_allocated_header(::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Header* header) {
+inline void RaspiMessageEnvelope::set_allocated_header(::Ar::Raspi::Messages::RaspiMessageEnvelope_Header* header) {
   delete header_;
   header_ = header;
   if (header) {
@@ -958,37 +958,37 @@ inline void ArRaspiMessageEnvelope::set_allocated_header(::Ar::Raspi::Messages::
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.header)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.header)
 }
 
-// optional .Ar.Raspi.Messages.ArRaspiMessageEnvelope.Body body = 2;
-inline bool ArRaspiMessageEnvelope::has_body() const {
+// optional .Ar.Raspi.Messages.RaspiMessageEnvelope.Body body = 2;
+inline bool RaspiMessageEnvelope::has_body() const {
   return !_is_default_instance_ && body_ != NULL;
 }
-inline void ArRaspiMessageEnvelope::clear_body() {
+inline void RaspiMessageEnvelope::clear_body() {
   if (GetArenaNoVirtual() == NULL && body_ != NULL) delete body_;
   body_ = NULL;
 }
-inline const ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body& ArRaspiMessageEnvelope::body() const {
-  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.ArRaspiMessageEnvelope.body)
+inline const ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body& RaspiMessageEnvelope::body() const {
+  // @@protoc_insertion_point(field_get:Ar.Raspi.Messages.RaspiMessageEnvelope.body)
   return body_ != NULL ? *body_ : *default_instance_->body_;
 }
-inline ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* ArRaspiMessageEnvelope::mutable_body() {
+inline ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* RaspiMessageEnvelope::mutable_body() {
   
   if (body_ == NULL) {
-    body_ = new ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body;
+    body_ = new ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body;
   }
-  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.ArRaspiMessageEnvelope.body)
+  // @@protoc_insertion_point(field_mutable:Ar.Raspi.Messages.RaspiMessageEnvelope.body)
   return body_;
 }
-inline ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* ArRaspiMessageEnvelope::release_body() {
-  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.ArRaspiMessageEnvelope.body)
+inline ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* RaspiMessageEnvelope::release_body() {
+  // @@protoc_insertion_point(field_release:Ar.Raspi.Messages.RaspiMessageEnvelope.body)
   
-  ::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* temp = body_;
+  ::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* temp = body_;
   body_ = NULL;
   return temp;
 }
-inline void ArRaspiMessageEnvelope::set_allocated_body(::Ar::Raspi::Messages::ArRaspiMessageEnvelope_Body* body) {
+inline void RaspiMessageEnvelope::set_allocated_body(::Ar::Raspi::Messages::RaspiMessageEnvelope_Body* body) {
   delete body_;
   body_ = body;
   if (body) {
@@ -996,7 +996,7 @@ inline void ArRaspiMessageEnvelope::set_allocated_body(::Ar::Raspi::Messages::Ar
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.ArRaspiMessageEnvelope.body)
+  // @@protoc_insertion_point(field_set_allocated:Ar.Raspi.Messages.RaspiMessageEnvelope.body)
 }
 
 // -------------------------------------------------------------------

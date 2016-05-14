@@ -26,11 +26,11 @@ namespace Ar { namespace Raspi
         void addRoute();
         void handleUdpPacketMessage(Ar::UdpPacketMessage *message);
         void serialize(Ar::UdpPacketMessage *message);
-        void printHeaderAndBody(const Messages::ArRaspiMessageEnvelope &envelope) const;
-        void sendIncorrectProtoBuffMessage(const Messages::ArRaspiMessageEnvelope &envelope) const;
-        void dispatchMessage(const Messages::ArRaspiMessageEnvelope &);
-        Messages::ArRaspiMessageEnvelope prepareEnvelope(unsigned type, const Messages::RaspiMessage &message);
-        UdpPacketMessage* packToUdpPacketMessage(const Messages::ArRaspiMessageEnvelope &envelope) const;
+        void printHeaderAndBody(const Messages::RaspiMessageEnvelope &envelope) const;
+        void sendIncorrectProtoBuffMessage(const Messages::RaspiMessageEnvelope &envelope) const;
+        void dispatchMessage(const Messages::RaspiMessageEnvelope &);
+        Messages::RaspiMessageEnvelope prepareEnvelope(unsigned type, const Messages::RaspiMessage &message);
+        UdpPacketMessage* packToUdpPacketMessage(const Messages::RaspiMessageEnvelope &envelope) const;
 
     private:
         Ar::Middleware::SharedPtr<Ar::Middleware::ActiveThread> _thread;

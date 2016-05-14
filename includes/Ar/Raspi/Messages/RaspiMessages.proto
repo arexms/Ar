@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package Ar.Raspi.Messages;
 
-message ArRaspiMessageEnvelope
+message RaspiMessageEnvelope
 {      
     message Header
     {

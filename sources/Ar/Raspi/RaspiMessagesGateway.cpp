@@ -78,7 +78,7 @@ namespace Ar{ namespace Raspi
 
     void RaspiMessagesGateway::serialize(UdpPacketMessage *message)
     {
-        Messages::ArRaspiMessageEnvelope envelope;
+        Messages::RaspiMessageEnvelope envelope;
         Messages::RaspiMessagesSerDes serDes;
         std::string data = message->data.get();
         if(!serDes.serialize(data, envelope))
@@ -106,7 +106,7 @@ namespace Ar{ namespace Raspi
 
     }
 
-    void RaspiMessagesGateway::printHeaderAndBody(const Messages::ArRaspiMessageEnvelope &envelope) const
+    void RaspiMessagesGateway::printHeaderAndBody(const Messages::RaspiMessageEnvelope &envelope) const
     {
         log().info("printHeaderAndBody()");
 
@@ -121,19 +121,19 @@ namespace Ar{ namespace Raspi
         log().info("\t\ttype: %u", envelope.body().type());
     }
 
-    void RaspiMessagesGateway::sendIncorrectProtoBuffMessage(const Messages::ArRaspiMessageEnvelope &) const
+    void RaspiMessagesGateway::sendIncorrectProtoBuffMessage(const Messages::RaspiMessageEnvelope &) const
     {
 
     }
 
-    void RaspiMessagesGateway::dispatchMessage(const Messages::ArRaspiMessageEnvelope &)
+    void RaspiMessagesGateway::dispatchMessage(const Messages::RaspiMessageEnvelope &)
     {
 
     }
 
-    Messages::ArRaspiMessageEnvelope RaspiMessagesGateway::prepareEnvelope(unsigned type, const Messages::RaspiMessage &message)
+    Messages::RaspiMessageEnvelope RaspiMessagesGateway::prepareEnvelope(unsigned type, const Messages::RaspiMessage &message)
     {
-        Messages::ArRaspiMessageEnvelope envelope;
+        Messages::RaspiMessageEnvelope envelope;
         Messages::RaspiMessageEnvelopeBuilder builder;
         Messages::RaspiMessageBodyBuilder bodyBuilder;
         Messages::RaspiMessageHeaderBuilder headerBuilder;
@@ -145,7 +145,7 @@ namespace Ar{ namespace Raspi
         return envelope;
     }
 
-    UdpPacketMessage *RaspiMessagesGateway::packToUdpPacketMessage(const Messages::ArRaspiMessageEnvelope &envelope) const
+    UdpPacketMessage *RaspiMessagesGateway::packToUdpPacketMessage(const Messages::RaspiMessageEnvelope &envelope) const
     {
         auto msg = new UdpPacketMessage();
         msg->length = envelope.ByteSize();

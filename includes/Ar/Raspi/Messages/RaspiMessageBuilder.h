@@ -9,21 +9,21 @@ namespace Ar { namespace Raspi { namespace Messages
     {
     public:
         virtual ~RaspiMessageBuilderIf() {}
-        virtual bool build(ArRaspiMessageEnvelope &envelope) = 0;
+        virtual bool build(RaspiMessageEnvelope &envelope) = 0;
     };
 
     class RaspiMessageHeaderBuilder : public RaspiMessageBuilderIf
     {
     public:
         RaspiMessageHeaderBuilder();
-        virtual bool build(ArRaspiMessageEnvelope &envelope) override;
+        virtual bool build(RaspiMessageEnvelope &envelope) override;
 
     protected:
-        void buildInterfaceVersion(ArRaspiMessageEnvelope_Header *header);
-        void buildId(ArRaspiMessageEnvelope_Header *header);
-        void buildTimestamp(ArRaspiMessageEnvelope_Header *header);
-        void buildFrom(ArRaspiMessageEnvelope_Header *header);
-        void buildTo(ArRaspiMessageEnvelope_Header *header);
+        void buildInterfaceVersion(RaspiMessageEnvelope_Header *header);
+        void buildId(RaspiMessageEnvelope_Header *header);
+        void buildTimestamp(RaspiMessageEnvelope_Header *header);
+        void buildFrom(RaspiMessageEnvelope_Header *header);
+        void buildTo(RaspiMessageEnvelope_Header *header);
 
     private:
         std::string _interfaceVersion;
@@ -34,12 +34,12 @@ namespace Ar { namespace Raspi { namespace Messages
     class RaspiMessageBodyBuilder : public RaspiMessageBuilderIf
     {
     public:
-        virtual bool build(ArRaspiMessageEnvelope &envelope) override;
+        virtual bool build(RaspiMessageEnvelope &envelope) override;
         void setMessageAndType(unsigned type, const RaspiMessage *message);
 
     protected:
-        void buildType(ArRaspiMessageEnvelope_Body *body);
-        void buildMessage(ArRaspiMessageEnvelope_Body *body);
+        void buildType(RaspiMessageEnvelope_Body *body);
+        void buildMessage(RaspiMessageEnvelope_Body *body);
 
     private:
         unsigned _type;
@@ -51,7 +51,7 @@ namespace Ar { namespace Raspi { namespace Messages
     {
     public:
         RaspiMessageEnvelopeBuilder();
-        virtual bool build(ArRaspiMessageEnvelope &envelope) override;
+        virtual bool build(RaspiMessageEnvelope &envelope) override;
         void setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder);
         void setBodyBuilder(RaspiMessageBuilderIf *bodyBuilder);
 
