@@ -9,7 +9,7 @@
 #include <Ar/Messages.h>
 #include <Ar/Udp/UdpService.h>
 #include <Ar/Reset/ResetManager.h>
-#include <Ar/RasPi/RaspiMessagesGateway.h>
+#include <Ar/Raspi/RaspiMessagesGateway.h>
 
 /*class A : public Ar::Middleware::ActiveObject
 {
@@ -191,7 +191,7 @@ int main()
     udpService.initialize();
     udpService.run();
     Ar::Reset::ResetManager resetManager;
-    Ar::RasPi::RaspiMessagesGateway raspiMessagesGateway;
+    Ar::Raspi::RaspiMessagesGateway raspiMessagesGateway;
 
     resetManager.idle();
 
