@@ -17,28 +17,6 @@ namespace Ar { namespace Middleware
     static const std::string magenta("\033[0;35m");*/
     static const std::string reset("\033[0m");
 
-    static const char *LogFlagStr[] =
-    {
-        "    GENERIC",                      //  0x00
-        " MIDDLEWARE",                      //  0x01
-        "    UDP_TRX",                      //  0x02
-        "     UDP_TX",                      //  0x03
-        "     UDP_RX",                      //  0x04
-        "  UDPCP_TRX",                      //  0x05
-        "       PIPE",                      //  0x06
-        "UDP_CP_CONV",                      //  0x07
-        "       MAIN",                      //  0x08
-        "           ",                      //  0x09
-        "         AT",                      //  0x0A
-        "    AT_ADDR",                      //  0x0B
-        "      RESET",                      //  0x0C
-        "UDP_SERVICE",                      //  0x0D
-        "   RASPI_GW",                      //  0x0E
-        "  CONN_MNGR",                      //  0x0F
-
-        "NONE"
-    };
-    
     static const char *LogLevelStr[] =
     {
         "ERR",
@@ -57,7 +35,6 @@ namespace Ar { namespace Middleware
     };
     
     std::mutex Logger::Log::_mutex;
-    char Logger::_logSet[ END_LOG_FLAG ] = { 0 };
 
     Logger::Prologue::Prologue()
     {}
@@ -66,15 +43,8 @@ namespace Ar { namespace Middleware
         : prologue( prologue_ )
     {}
 
-    Logger::Log::Log( LogFlag flag, LogLevel level )
-        : _flag( flag)
-        , _level( level )
-        , _prefix(LogFlagStr[flag])
-    {}
-
     Logger::Log::Log(const std::string &prefix, LogLevel level)
-        : _flag( END_LOG_FLAG )
-        , _level( level )
+        : _level(level)
         , _prefix(prefix)
     {
 
@@ -101,7 +71,7 @@ namespace Ar { namespace Middleware
             ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X") << ":" << mc;
             std::string now = ss.str();
 
-        std::string	temp = std::string( "[" ) + now + "][" + LogLevelStr[ _level ] + "][" + LogFlagStr[ _flag ] + "]" + " " + _prologue.prologue + str + "\n";
+        std::string	temp = std::string( "[" ) + now + "][" + LogLevelStr[ _level ] + "][" + _prefix + "]" + " " + _prologue.prologue + str + "\n";
 
         char buff[ 2048 ] = {0};
         va_list args;
@@ -121,22 +91,13 @@ namespace Ar { namespace Middleware
         return *this;
     }
 
-    Logger::Logger( LogFlag flag, const std::string &prologue )
-        : debug( flag, DEBUG )
-        , info( flag, INFO )
-        , warning( flag, WARNING )
-        , error( flag, ERROR )
-    {
-        setPrologue( prologue );
-    }
-
     Logger::Logger(const std::string &prefix, const std::__cxx11::string &prologue)
         : debug( prefix, DEBUG )
         , info( prefix, INFO )
         , warning( prefix, WARNING )
         , error( prefix, ERROR )
     {
-
+        setPrologue( prologue );
     }
 
     void Logger::setPrologue( const Prologue &prologue )

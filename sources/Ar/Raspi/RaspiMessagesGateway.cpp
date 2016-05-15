@@ -7,7 +7,7 @@
 namespace Ar{ namespace Raspi
 {
     RaspiMessagesGateway::RaspiMessagesGateway()
-        : ActiveObject(Ar::Middleware::RASPI_GW)
+        : ActiveObject("RASPI_GW")
         , _thread(safeNew<ActiveThread>())
         , _cm(safeNewWith1Arg<Managers::ConnectionManager>(this))
         , _routeId(0)

@@ -2,8 +2,8 @@
 
 namespace Ar { namespace Raspi { namespace Managers
 {
-    RaspiManagerIf::RaspiManagerIf(Ar::Middleware::LogFlag flag)
-        : Ar::Middleware::ActiveObject(flag)
+    RaspiManagerIf::RaspiManagerIf(const std::string &name)
+        : Ar::Middleware::ActiveObject(name)
     {
 
     }

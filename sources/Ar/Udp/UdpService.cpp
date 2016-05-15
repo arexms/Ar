@@ -9,7 +9,7 @@ namespace Ar { namespace Udp
     unsigned UdpService::nextRouteId = 0;
 
     UdpService::UdpService()
-        : ActiveObject(UDP_SERVICE)
+        : ActiveObject("UDP_SERVICE")
         , _at( Ar::Middleware::safeNew<Ar::Middleware::ActiveThread>() )
 
     {

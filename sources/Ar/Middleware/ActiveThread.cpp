@@ -8,7 +8,7 @@ namespace Ar {
     namespace Middleware
     {
         ActiveThread::ActiveThread()
-            : _log(AT)
+            : _log("AT")
         {
         }
 

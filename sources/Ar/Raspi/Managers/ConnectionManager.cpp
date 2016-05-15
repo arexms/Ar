@@ -8,7 +8,7 @@
 namespace Ar { namespace Raspi { namespace Managers
 {
     ConnectionManager::ConnectionManager(RaspiMessagesGateway *gateway)
-        : RaspiManagerIf(Ar::Middleware::CONN_MNGR)
+        : RaspiManagerIf("CONN_MNGR")
         , _thread(Ar::Middleware::safeNew<Ar::Middleware::ActiveThread>())
         , _gateway(gateway)
     {
