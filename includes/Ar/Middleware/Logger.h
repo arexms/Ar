@@ -25,6 +25,7 @@ namespace Ar { namespace Middleware
         {
         public:
             Log( LogFlag flag, LogLevel level );
+            Log( const std::string &prefix, LogLevel level );
 
             void setPrologue( const Prologue &prologue );
 
@@ -34,6 +35,7 @@ namespace Ar { namespace Middleware
             LogFlag     _flag;
             LogLevel    _level;
             Prologue    _prologue;
+            const std::string _prefix;
 
             static std::mutex _mutex;
         };
@@ -41,6 +43,7 @@ namespace Ar { namespace Middleware
 
     public:
         Logger( LogFlag flag, const std::string &prologue = "" );
+        Logger( const std::string &prefix, const std::string &prologue = "" );
 
         void setPrologue( const Prologue &prologue );
 

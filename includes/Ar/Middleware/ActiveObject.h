@@ -13,6 +13,7 @@ namespace Ar {
 
         public:
             inline ActiveObject(LogFlag flag);
+            ActiveObject(const std::string &aoName);
             inline virtual ~ActiveObject();
             inline void attachTo(ActiveThread *at_);
             void attachAndInitialize(ActiveThread *at_);

@@ -69,7 +69,16 @@ namespace Ar { namespace Middleware
     Logger::Log::Log( LogFlag flag, LogLevel level )
         : _flag( flag)
         , _level( level )
+        , _prefix(LogFlagStr[flag])
     {}
+
+    Logger::Log::Log(const std::string &prefix, LogLevel level)
+        : _flag( END_LOG_FLAG )
+        , _level( level )
+        , _prefix(prefix)
+    {
+
+    }
 
     void Logger::Log::setPrologue( const Prologue &prologue )
     {
@@ -119,6 +128,15 @@ namespace Ar { namespace Middleware
         , error( flag, ERROR )
     {
         setPrologue( prologue );
+    }
+
+    Logger::Logger(const std::string &prefix, const std::__cxx11::string &prologue)
+        : debug( prefix, DEBUG )
+        , info( prefix, INFO )
+        , warning( prefix, WARNING )
+        , error( prefix, ERROR )
+    {
+
     }
 
     void Logger::setPrologue( const Prologue &prologue )
