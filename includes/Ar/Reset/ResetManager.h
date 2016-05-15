@@ -28,5 +28,6 @@ namespace Ar { namespace Reset
     private:
         bool _executeReset;
         Ar::Middleware::SharedPtr<Ar::Middleware::ActiveThread> _resetThread;
+        int _resetType;
     };
 } }
