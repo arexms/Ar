@@ -15,27 +15,45 @@ namespace Ar { namespace Raspi { namespace Messages
 
     bool RaspiMessageHeaderBuilder::build(RaspiMessageEnvelope &envelope)
     {
-        buildInterfaceVersion(envelope.mutable_header());
-        buildId(envelope.mutable_header());
-        buildTimestamp(envelope.mutable_header());
-        buildFrom(envelope.mutable_header());
-        buildTo(envelope.mutable_header());
+        return
+                buildInterfaceVersion(envelope.mutable_header()) &&
+                buildId(envelope.mutable_header()) &&
+                buildTimestamp(envelope.mutable_header()) &&
+                buildFrom(envelope.mutable_header()) &&
+                buildTo(envelope.mutable_header());
+    }
+
+    void RaspiMessageHeaderBuilder::setInterfaceVersion(const std::string &interfaceVersion)
+    {
+        _interfaceVersion = interfaceVersion;
+    }
+
+    void RaspiMessageHeaderBuilder::setFrom(const std::string &from)
+    {
+        _from = from;
+    }
+
+    void RaspiMessageHeaderBuilder::setTo(const std::string &to)
+    {
+        _to = to;
+    }
+
+    bool RaspiMessageHeaderBuilder::buildInterfaceVersion(RaspiMessageEnvelope_Header *header)
+    {
+        header->set_interfaceversion(_interfaceVersion);
 
         return true;
     }
 
-    void RaspiMessageHeaderBuilder::buildInterfaceVersion(RaspiMessageEnvelope_Header *header)
-    {
-        header->set_interfaceversion(_interfaceVersion);
-    }
-
-    void RaspiMessageHeaderBuilder::buildId(RaspiMessageEnvelope_Header *header)
+    bool RaspiMessageHeaderBuilder::buildId(RaspiMessageEnvelope_Header *header)
     {
         static int id = 0;
         header->set_id(id++);
+
+        return true;
     }
 
-    void RaspiMessageHeaderBuilder::buildTimestamp(RaspiMessageEnvelope_Header *header)
+    bool RaspiMessageHeaderBuilder::buildTimestamp(RaspiMessageEnvelope_Header *header)
     {
         auto now_ = std::chrono::high_resolution_clock::now();
         auto in_time_t = std::chrono::high_resolution_clock::to_time_t(now_);
@@ -43,24 +61,27 @@ namespace Ar { namespace Raspi { namespace Messages
         std::stringstream ss;
         ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
         header->set_timestamp(ss.str());
+
+        return true;
     }
 
-    void RaspiMessageHeaderBuilder::buildFrom(RaspiMessageEnvelope_Header *header)
+    bool RaspiMessageHeaderBuilder::buildFrom(RaspiMessageEnvelope_Header *header)
     {
         header->set_from(_from);
+
+        return true;
     }
 
-    void RaspiMessageHeaderBuilder::buildTo(RaspiMessageEnvelope_Header *header)
+    bool RaspiMessageHeaderBuilder::buildTo(RaspiMessageEnvelope_Header *header)
     {
         header->set_to(_to);
+
+        return true;
     }
 
     bool RaspiMessageBodyBuilder::build(RaspiMessageEnvelope &envelope)
     {
-        buildType(envelope.mutable_body());
-        buildMessage(envelope.mutable_body());
-
-        return true;
+        return buildType(envelope.mutable_body()) && buildMessage(envelope.mutable_body());
     }
 
     void RaspiMessageBodyBuilder::setMessageAndType(unsigned type, const RaspiMessage *message)
@@ -69,14 +90,16 @@ namespace Ar { namespace Raspi { namespace Messages
         _message = message;
     }
 
-    void RaspiMessageBodyBuilder::buildType(RaspiMessageEnvelope_Body *body)
+    bool RaspiMessageBodyBuilder::buildType(RaspiMessageEnvelope_Body *body)
     {
         body->set_type(_type);
+        return true;
     }
 
-    void RaspiMessageBodyBuilder::buildMessage(RaspiMessageEnvelope_Body *body)
+    bool RaspiMessageBodyBuilder::buildMessage(RaspiMessageEnvelope_Body *body)
     {
-        _message->SerializeToString(body->mutable_data());
+        auto ret = _message->SerializeToString(body->mutable_data());
+        return ret;
     }
 
     RaspiMessageEnvelopeBuilder::RaspiMessageEnvelopeBuilder()
@@ -88,10 +111,7 @@ namespace Ar { namespace Raspi { namespace Messages
 
     bool RaspiMessageEnvelopeBuilder::build(RaspiMessageEnvelope &envelope)
     {
-        _headerBuilder->build(envelope);
-        _bodyBuilder->build(envelope);
-
-        return true;
+        return _headerBuilder->build(envelope) && _bodyBuilder->build(envelope);
     }
 
     void RaspiMessageEnvelopeBuilder::setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder)

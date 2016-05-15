@@ -17,13 +17,16 @@ namespace Ar { namespace Raspi { namespace Messages
     public:
         RaspiMessageHeaderBuilder();
         virtual bool build(RaspiMessageEnvelope &envelope) override;
+        void setInterfaceVersion(const std::string &interfaceVersion);
+        void setFrom(const std::string &from);
+        void setTo(const std::string &to);
 
     protected:
-        void buildInterfaceVersion(RaspiMessageEnvelope_Header *header);
-        void buildId(RaspiMessageEnvelope_Header *header);
-        void buildTimestamp(RaspiMessageEnvelope_Header *header);
-        void buildFrom(RaspiMessageEnvelope_Header *header);
-        void buildTo(RaspiMessageEnvelope_Header *header);
+        bool buildInterfaceVersion(RaspiMessageEnvelope_Header *header);
+        bool buildId(RaspiMessageEnvelope_Header *header);
+        bool buildTimestamp(RaspiMessageEnvelope_Header *header);
+        bool buildFrom(RaspiMessageEnvelope_Header *header);
+        bool buildTo(RaspiMessageEnvelope_Header *header);
 
     private:
         std::string _interfaceVersion;
@@ -38,8 +41,8 @@ namespace Ar { namespace Raspi { namespace Messages
         void setMessageAndType(unsigned type, const RaspiMessage *message);
 
     protected:
-        void buildType(RaspiMessageEnvelope_Body *body);
-        void buildMessage(RaspiMessageEnvelope_Body *body);
+        bool buildType(RaspiMessageEnvelope_Body *body);
+        bool buildMessage(RaspiMessageEnvelope_Body *body);
 
     private:
         unsigned _type;

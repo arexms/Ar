@@ -106,7 +106,6 @@ namespace Ar{ namespace Raspi
         /**
         @}
         */
-
     }
 
     void RaspiMessagesGateway::printHeaderAndBody(const Messages::RaspiMessageEnvelope &envelope) const

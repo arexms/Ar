@@ -34,6 +34,8 @@ namespace Ar { namespace Reset
             std::this_thread::sleep_for(1s);
         }
 
+        /// @note Reseting SW...
+
         return SW_RESET;
     }
 
