@@ -17,9 +17,9 @@ namespace Ar { namespace Raspi { namespace Messages
     public:
         RaspiMessageHeaderBuilder();
         virtual bool build(RaspiMessageEnvelope &envelope) override;
-        void setInterfaceVersion(const std::string &interfaceVersion);
-        void setFrom(const std::string &from);
-        void setTo(const std::string &to);
+        RaspiMessageHeaderBuilder& setInterfaceVersion(const std::string &interfaceVersion);
+        RaspiMessageHeaderBuilder& setFrom(const std::string &from);
+        RaspiMessageHeaderBuilder& setTo(const std::string &to);
 
     protected:
         bool buildInterfaceVersion(RaspiMessageEnvelope_Header *header);
@@ -38,7 +38,7 @@ namespace Ar { namespace Raspi { namespace Messages
     {
     public:
         virtual bool build(RaspiMessageEnvelope &envelope) override;
-        void setMessageAndType(unsigned type, const RaspiMessage *message);
+        RaspiMessageBodyBuilder& setMessageAndType(unsigned type, const RaspiMessage *message);
 
     protected:
         bool buildType(RaspiMessageEnvelope_Body *body);
@@ -55,8 +55,8 @@ namespace Ar { namespace Raspi { namespace Messages
     public:
         RaspiMessageEnvelopeBuilder();
         virtual bool build(RaspiMessageEnvelope &envelope) override;
-        void setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder);
-        void setBodyBuilder(RaspiMessageBuilderIf *bodyBuilder);
+        RaspiMessageEnvelopeBuilder& setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder);
+        RaspiMessageEnvelopeBuilder& setBodyBuilder(RaspiMessageBuilderIf *bodyBuilder);
 
     private:
         RaspiMessageBuilderIf *_headerBuilder;

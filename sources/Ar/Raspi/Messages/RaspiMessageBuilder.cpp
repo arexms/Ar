@@ -23,19 +23,22 @@ namespace Ar { namespace Raspi { namespace Messages
                 buildTo(envelope.mutable_header());
     }
 
-    void RaspiMessageHeaderBuilder::setInterfaceVersion(const std::string &interfaceVersion)
+    RaspiMessageHeaderBuilder& RaspiMessageHeaderBuilder::setInterfaceVersion(const std::string &interfaceVersion)
     {
         _interfaceVersion = interfaceVersion;
+        return *this;
     }
 
-    void RaspiMessageHeaderBuilder::setFrom(const std::string &from)
+    RaspiMessageHeaderBuilder& RaspiMessageHeaderBuilder::setFrom(const std::string &from)
     {
         _from = from;
+        return *this;
     }
 
-    void RaspiMessageHeaderBuilder::setTo(const std::string &to)
+    RaspiMessageHeaderBuilder& RaspiMessageHeaderBuilder::setTo(const std::string &to)
     {
         _to = to;
+        return *this;
     }
 
     bool RaspiMessageHeaderBuilder::buildInterfaceVersion(RaspiMessageEnvelope_Header *header)
@@ -84,10 +87,12 @@ namespace Ar { namespace Raspi { namespace Messages
         return buildType(envelope.mutable_body()) && buildMessage(envelope.mutable_body());
     }
 
-    void RaspiMessageBodyBuilder::setMessageAndType(unsigned type, const RaspiMessage *message)
+    RaspiMessageBodyBuilder& RaspiMessageBodyBuilder::setMessageAndType(unsigned type, const RaspiMessage *message)
     {
         _type = type;
         _message = message;
+
+        return *this;
     }
 
     bool RaspiMessageBodyBuilder::buildType(RaspiMessageEnvelope_Body *body)
@@ -114,13 +119,17 @@ namespace Ar { namespace Raspi { namespace Messages
         return _headerBuilder->build(envelope) && _bodyBuilder->build(envelope);
     }
 
-    void RaspiMessageEnvelopeBuilder::setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder)
+    RaspiMessageEnvelopeBuilder &RaspiMessageEnvelopeBuilder::setHeaderBuilder(RaspiMessageBuilderIf *headerBuilder)
     {
         _headerBuilder = headerBuilder;
+
+        return *this;
     }
 
-    void RaspiMessageEnvelopeBuilder::setBodyBuilder(RaspiMessageBuilderIf *bodyBuilder)
+    RaspiMessageEnvelopeBuilder &RaspiMessageEnvelopeBuilder::setBodyBuilder(RaspiMessageBuilderIf *bodyBuilder)
     {
         _bodyBuilder = bodyBuilder;
+
+        return *this;
     }
 } } }

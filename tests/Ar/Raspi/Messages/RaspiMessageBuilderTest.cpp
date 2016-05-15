@@ -40,9 +40,10 @@ namespace Ar { namespace Raspi { namespace Messages
     {
         RaspiMessageEnvelope envelope;
 
-        _headerBuilder.setInterfaceVersion("iv_test");
-        _headerBuilder.setFrom("from_test");
-        _headerBuilder.setTo("to_test");
+        _headerBuilder
+                .setInterfaceVersion("iv_test")
+                .setFrom("from_test")
+                .setTo("to_test");
 
         EXPECT_TRUE(_headerBuilder.build(envelope));
 
@@ -89,8 +90,9 @@ namespace Ar { namespace Raspi { namespace Messages
         MockRaspiMessageHeaderBuilder mockRaspiMessageHeaderBuilder;
         MockRaspiMessageBodyBuilder mockRaspiMessageBodyBuilder;
 
-        _envelopeBuilder.setHeaderBuilder(&mockRaspiMessageHeaderBuilder);
-        _envelopeBuilder.setBodyBuilder(&mockRaspiMessageBodyBuilder);
+        _envelopeBuilder
+                .setHeaderBuilder(&mockRaspiMessageHeaderBuilder)
+                .setBodyBuilder(&mockRaspiMessageBodyBuilder);
 
         EXPECT_CALL(mockRaspiMessageHeaderBuilder, build(_))
                 .WillOnce(Return(true));
@@ -108,8 +110,9 @@ namespace Ar { namespace Raspi { namespace Messages
         MockRaspiMessageHeaderBuilder mockRaspiMessageHeaderBuilder;
         MockRaspiMessageBodyBuilder mockRaspiMessageBodyBuilder;
 
-        _envelopeBuilder.setHeaderBuilder(&mockRaspiMessageHeaderBuilder);
-        _envelopeBuilder.setBodyBuilder(&mockRaspiMessageBodyBuilder);
+        _envelopeBuilder
+                .setHeaderBuilder(&mockRaspiMessageHeaderBuilder)
+                .setBodyBuilder(&mockRaspiMessageBodyBuilder);
 
         EXPECT_CALL(mockRaspiMessageHeaderBuilder, build(_))
                 .WillOnce(Return(false));
@@ -127,8 +130,9 @@ namespace Ar { namespace Raspi { namespace Messages
         MockRaspiMessageHeaderBuilder mockRaspiMessageHeaderBuilder;
         MockRaspiMessageBodyBuilder mockRaspiMessageBodyBuilder;
 
-        _envelopeBuilder.setHeaderBuilder(&mockRaspiMessageHeaderBuilder);
-        _envelopeBuilder.setBodyBuilder(&mockRaspiMessageBodyBuilder);
+        _envelopeBuilder
+                .setHeaderBuilder(&mockRaspiMessageHeaderBuilder)
+                .setBodyBuilder(&mockRaspiMessageBodyBuilder);
 
         EXPECT_CALL(mockRaspiMessageHeaderBuilder, build(_))
                 .WillOnce(Return(true));
