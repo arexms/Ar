@@ -8,8 +8,9 @@ namespace Ar { namespace Reset
 
     ResetManager::ResetManager()
         : ActiveObject(RESET)
-        ,  _executeReset(false)
+        , _executeReset(false)
         , _resetThread(safeNew<ActiveThread>())
+        , _resetType(0);
 
     {
         log().info("Starting...");
@@ -44,6 +45,8 @@ namespace Ar { namespace Reset
         log().warning("Reset Received!");
         log().info("\t%s(%s)", message->byWho.c_str(), message->from->name().c_str());
         log().info("\t%s", message->reason.c_str());
-        _executeReset = true;
+
+        _resetType = SW_RESET; /// @todo get from message
+        _executeReset = true; /// @note remember that changing thjis flag must be the last operation in this method.
     }
 } }
