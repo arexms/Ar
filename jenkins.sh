@@ -7,8 +7,6 @@ then
     echo "Cleaning workspace..."
     make clean
 fi
-echo "Building..."
-make -j
-echo "Running tests..."
-make runTests
+echo "Building and tests executing..."
+make -j && make runTests
 cd ..
