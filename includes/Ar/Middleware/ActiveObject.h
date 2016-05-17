@@ -13,7 +13,7 @@ namespace Ar {
 
         public:
             ActiveObject(const std::string &aoName);
-            inline virtual ~ActiveObject();
+            virtual ~ActiveObject();
             inline void attachTo(ActiveThread *at_);
             void attachAndInitialize(ActiveThread *at_);
             inline ActiveThread* at();
@@ -29,11 +29,6 @@ namespace Ar {
         };
 
         // IMPLEMENTATION
-        inline ActiveObject::~ActiveObject()
-        {
-
-        }
-
         inline void ActiveObject::attachTo(ActiveThread *at_)
         {
             _at = at_;

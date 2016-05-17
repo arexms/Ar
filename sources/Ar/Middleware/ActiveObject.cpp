@@ -9,6 +9,11 @@ namespace Ar { namespace Middleware
 
     }
 
+    ActiveObject::~ActiveObject()
+    {
+
+    }
+
     void ActiveObject::attachAndInitialize(ActiveThread *at_)
     {
         attachTo(at_);

@@ -47,7 +47,14 @@ namespace Ar { namespace Middleware
         : _level(level)
         , _prefix(prefix)
     {
-
+        if(prefix.size()>8)
+        {
+            _prefix = _prefix.substr(0, 8);
+        }
+        else if(prefix.size()<8)
+        {
+            _prefix = std::string(8 - prefix.size(), ' ') + prefix;
+        }
     }
 
     void Logger::Log::setPrologue( const Prologue &prologue )
@@ -78,7 +85,7 @@ namespace Ar { namespace Middleware
         va_start( args, str );
         vsprintf( buff, temp.c_str(), args );
         va_end( args );
-        //if( Logger::_logSet[ PRINT_TO_CONSOLE ] || _level == ERROR )
+
         {
             printf( "%s%s%s", LogColor[ _level ], buff, reset.c_str() );
         }

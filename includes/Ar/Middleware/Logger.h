@@ -33,7 +33,7 @@ namespace Ar { namespace Middleware
         private:
             LogLevel    _level;
             Prologue    _prologue;
-            const std::string _prefix;
+            std::string _prefix;
             static std::mutex _mutex;
         };
 
