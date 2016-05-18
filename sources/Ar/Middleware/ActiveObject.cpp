@@ -3,6 +3,17 @@
 
 namespace Ar { namespace Middleware
 {
+    ActiveObject::ActiveObject(const std::string &aoName)
+        : _log(aoName)
+    {
+
+    }
+
+    ActiveObject::~ActiveObject()
+    {
+
+    }
+
     void ActiveObject::attachAndInitialize(ActiveThread *at_)
     {
         attachTo(at_);

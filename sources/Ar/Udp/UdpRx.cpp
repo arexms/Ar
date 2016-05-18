@@ -10,7 +10,7 @@ using boost::asio::ip::udp;
 namespace Ar { namespace Udp
 {
     UdpRx::UdpRx()
-        : _logger( Middleware::UDP_RX, "UdpRx::" )
+        : _logger( "UDP_RX", "UdpRx::" )
         , _socket( nullptr )
         , _socketReceived( true )
         , _data( nullptr )

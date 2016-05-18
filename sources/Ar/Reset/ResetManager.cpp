@@ -7,7 +7,7 @@ namespace Ar { namespace Reset
     using namespace Ar::Middleware;
 
     ResetManager::ResetManager()
-        : ActiveObject(RESET)
+        : ActiveObject("RESET")
         , _executeReset(false)
         , _resetThread(safeNew<ActiveThread>())
         , _resetType(0);

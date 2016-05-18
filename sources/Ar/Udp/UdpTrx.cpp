@@ -10,7 +10,7 @@ namespace Ar { namespace Udp
     UdpTrx::UdpTrx()
         : _tx( 0 )
         , _rx( 0 )
-        , _logger( Middleware::UDP_TRX )
+        , _logger( "UDP_TRX" )
         , _socket( 0 )
         , _rxThread( 0 )
     {}

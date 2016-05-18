@@ -3,7 +3,7 @@
 namespace Ar { namespace Middleware
 {
     ActiveThreadAddresses::ActiveThreadAddresses()
-    : _log(AT_ADDR)
+    : _log("AT_ADDR")
     {
         log().setPrologue("ATA: ");
     }

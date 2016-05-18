@@ -12,8 +12,8 @@ namespace Ar {
             friend class ActiveThread;
 
         public:
-            inline ActiveObject(LogFlag flag);
-            inline virtual ~ActiveObject();
+            ActiveObject(const std::string &aoName);
+            virtual ~ActiveObject();
             inline void attachTo(ActiveThread *at_);
             void attachAndInitialize(ActiveThread *at_);
             inline ActiveThread* at();
@@ -29,15 +29,6 @@ namespace Ar {
         };
 
         // IMPLEMENTATION
-        inline ActiveObject::ActiveObject(LogFlag flag)
-            : _log(flag)
-        {}
-
-        inline ActiveObject::~ActiveObject()
-        {
-
-        }
-
         inline void ActiveObject::attachTo(ActiveThread *at_)
         {
             _at = at_;
