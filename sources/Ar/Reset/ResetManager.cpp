@@ -10,7 +10,7 @@ namespace Ar { namespace Reset
         : ActiveObject("RESET")
         , _executeReset(false)
         , _resetThread(safeNew<ActiveThread>())
-        , _resetType(0);
+        , _resetType(0)
 
     {
         log().info("Starting...");
