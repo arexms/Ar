@@ -1,6 +1,6 @@
 #!/bin/sh
 cd build
-cmake .
+cmake ..
 echo $1
 if [ "$1" == true ]
 then

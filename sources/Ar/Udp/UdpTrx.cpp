@@ -77,7 +77,6 @@ namespace Ar { namespace Udp
         memcpy(buff, data, length );
         buff[ length ] = '\0';
         _tx->send( buff, length );
-        log().debug( "UdpTrx::send length %u", length );
 
         return true;
     }
