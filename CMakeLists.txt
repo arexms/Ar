@@ -6,7 +6,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 set(MAIN_FILE main.cpp)
 # clang does not work --> https://bugs.launchpad.net/ubuntu/+source/llvm-toolchain-3.6/+bug/1488254
-#SET(CMAKE_CXX_COMPILER "/usr/bin/g++")
+SET(CMAKE_CXX_COMPILER "/usr/bin/g++")
 #SET(CMAKE_EXE_LINKER_FLAGS "--coverage" ) # for clang only
 set(Boost_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ext/boost_1_60_0)
 set(Boost_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ext/boost_1_60_0/stage/lib)
