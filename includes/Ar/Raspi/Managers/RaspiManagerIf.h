@@ -2,6 +2,11 @@
 
 #include <Ar/Middleware/ActiveObject.h>
 
+namespace Ar { namespace Raspi
+{
+    class RaspiMessagesGateway;
+} }
+
 namespace Ar { namespace Raspi { namespace Managers
 {
     class RaspiManagerIf : public Ar::Middleware::ActiveObject

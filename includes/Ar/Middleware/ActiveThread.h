@@ -42,6 +42,8 @@ namespace Ar {
             friend class ActiveThreadCore;
             friend class ActiveObject;
 
+            static SharedPtr<ActiveThread> create();
+
             ActiveThread();
             ~ActiveThread();
 

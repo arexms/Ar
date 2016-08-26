@@ -6,7 +6,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 set(MAIN_FILE main.cpp)
 # clang does not work --> https://bugs.launchpad.net/ubuntu/+source/llvm-toolchain-3.6/+bug/1488254
-#SET(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+#SET(CMAKE_CXX_COMPILER "/usr/bin/g++")
 #SET(CMAKE_EXE_LINKER_FLAGS "--coverage" ) # for clang only
 set(Boost_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ext/boost_1_60_0)
 set(Boost_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ext/boost_1_60_0/stage/lib)
@@ -22,7 +22,7 @@ include_directories(includes)
 include_directories(${Boost_INCLUDE_DIR})
 
 #add_definitions("-Wno-long-long -Wno-variadic-macros -Wall -Wextra -Wno-unknown-pragmas -pedantic -Os -W -pthread -std=c++14")
-add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14 -fprofile-arcs -ftest-coverage")
+add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14")
 #add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -std=c++14")
 add_library(arraspi ${SOURCES_LIST})
 
@@ -62,6 +62,19 @@ ADD_CUSTOM_TARGET(
     "mv" RaspiMessages.pb.cc ../sources/Ar/Raspi/Messages/RaspiMessages.pb.cpp
 
 )
+
+# Adding clang-tidy target if executable is found
+find_program(CLANG_TIDY "clang-tidy")
+if(CLANG_TIDY)
+  add_custom_target(
+    clang-tidy
+    COMMAND /usr/bin/clang-tidy
+    ${SOURCES_LIST}
+    -checks=*,-clang-analyzer-alpha.*,-llvm-include-order -header-filter=.*
+    --
+    -std=c++14 -I../includes -I${Boost_INCLUDE_DIR}
+    )
+endif()
 
 ADD_DEPENDENCIES(arraspi generateProtobuf)
 

@@ -29,7 +29,8 @@ SOURCES += main.cpp \
     sources/Ar/Raspi/GpioPinImplConsole.cpp \
     sources/Ar/Raspi/GpioPinImplIf.cpp \
     sources/Ar/Raspi/RaspiMessagesGateway.cpp \
-    sources/Ar/Reset/ResetManager.cpp
+    sources/Ar/Reset/ResetManager.cpp \
+    sources/Ar/Raspi/Managers/LedManager.cpp
 
 HEADERS += \
     includes/Ar/Udp/UdpRx.h \
@@ -55,7 +56,6 @@ HEADERS += \
     includes/Ar/Middleware/Singleton.h \
     includes/Ar/Middleware/Timer.h \
     includes/Ar/Middleware/Utils.h \
-    includes/Ar/Raspi/Managers/ConnectionManager.h \
     includes/Ar/Raspi/Managers/RaspiManagerIf.h \
     includes/Ar/Raspi/Messages/RaspiMessage.h \
     includes/Ar/Raspi/Messages/RaspiMessageBuilder.h \
@@ -70,7 +70,9 @@ HEADERS += \
     includes/Ar/Raspi/GpioPinImplConsole.h \
     includes/Ar/Raspi/GpioPinImplIf.h \
     includes/Ar/Raspi/RaspiMessagesGateway.h \
-    includes/Ar/Reset/ResetManager.h
+    includes/Ar/Reset/ResetManager.h \
+    includes/Ar/Raspi/Managers/ConnectionManager.h \
+    includes/Ar/Raspi/Managers/LedManager.h
 
     includes/Ar/Middleware/Timer.h
 

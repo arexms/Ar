@@ -187,6 +187,8 @@ int B::i = 0;*/
 
 int main()
 {
+    int x;
+    x=5;
 
     for(;;)
     {
