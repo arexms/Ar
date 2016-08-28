@@ -48,6 +48,7 @@ namespace Ar {
         {
             IResponse(IMessage *message)
                 : IMessage{message->to, message->from}
+                , result(0)
             {}
 
             int result;

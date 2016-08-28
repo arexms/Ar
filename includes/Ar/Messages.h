@@ -59,7 +59,7 @@ namespace Ar {
         struct Response : public IMessage::IResponse
         {
             RESPONSE(MessageId::ADD_UDP_TRX_ROUTE_RESPONSE)
-            unsigned routeId;
+            unsigned routeId = 0;
         };
 
         MESSAGE(MessageId::ADD_UDP_TRX_ROUTE)
@@ -77,7 +77,7 @@ namespace Ar {
         MESSAGE(MessageId::UDP_PACKET)
 
         DataPtr data;
-        unsigned length;
-        unsigned routeId;
+        unsigned length = 0;
+        unsigned routeId = 0;
     };
 }

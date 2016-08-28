@@ -187,27 +187,35 @@ int B::i = 0;*/
 
 int main()
 {
-    int x;
-    x=5;
+    //int x;
+    //x=5;
 
-    for(;;)
+    try
     {
-        Ar::Reset::ResetManager resetManager;
-        Ar::Udp::UdpService udpService;
-        udpService.initialize();
-        udpService.run();
-        Ar::Raspi::RaspiMessagesGateway raspiMessagesGateway;
 
-        auto resetType = resetManager.idle();
+        for(;;)
+        {
+            Ar::Reset::ResetManager resetManager;
+            Ar::Udp::UdpService udpService;
+            udpService.initialize();
+            udpService.run();
+            Ar::Raspi::RaspiMessagesGateway raspiMessagesGateway;
 
-        if(resetType == Ar::Reset::ResetManager::SW_RESET)
-        {
-            continue;
+            auto resetType = resetManager.idle();
+
+            if(resetType == Ar::Reset::ResetManager::SW_RESET)
+            {
+                continue;
+            }
+            if(resetType == Ar::Reset::ResetManager::SW_EXIT)
+            {
+                break;
+            }
         }
-        if(resetType == Ar::Reset::ResetManager::SW_EXIT)
-        {
-            break;
-        }
+    }
+    catch(std::exception e)
+    {
+
     }
 
     return 0;

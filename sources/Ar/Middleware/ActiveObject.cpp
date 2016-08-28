@@ -4,7 +4,8 @@
 namespace Ar { namespace Middleware
 {
     ActiveObject::ActiveObject(const std::string &aoName)
-        : _log(aoName)
+        : _at(nullptr)
+        , _log(aoName)
     {
 
     }

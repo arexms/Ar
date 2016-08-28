@@ -88,6 +88,7 @@ namespace Ar { namespace Udp
 
     UdpService::Route::Route(UdpService *service, const std::string &callbackAtName)
         : _service(service)
+        , _routeId(0)
         , _callbackAtName(callbackAtName)
         , _trx(safeNew<UdpTrx>())
     {
