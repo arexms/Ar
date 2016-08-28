@@ -5,3 +5,4 @@ build/
 !build/cmake-modules
 ArRaspi.pro.user
 tmp/
+.vscode
