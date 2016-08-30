@@ -1,5 +1,11 @@
 language: cpp
 compiler: gcc
+addons:
+  apt:
+    sources:
+      - boost-latest
+    packages:
+      - libboost1.61-all-dev
 script:
 - cd build
 - cmake ../ && make
