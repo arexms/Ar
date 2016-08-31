@@ -1,12 +1,12 @@
 language: cpp
 compiler: gcc
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5.4" CC="gcc-5.4"; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 addons:
   apt:
     packages:
-      - gcc-5.4
-      - g++-5.4
+      - gcc-5
+      - g++-5
 before_script:
   - ls
   - sudo apt-get update -qq
