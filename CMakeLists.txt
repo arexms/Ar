@@ -64,11 +64,15 @@ if(CLANG_TIDY)
     )
 endif()
 
+MESSAGE( STATUS "PROTOC_PATH: " ${PROTOC_PATH} )
+
+
 ADD_DEPENDENCIES(arraspi generateProtobuf)
 
 #link_directories(${Boost_LIBRARY_DIR})
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest/)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googlemock/)
+link_directories(${PROTOC_PATH}/lib)
 
 add_executable(ArRaspi ${MAIN_FILE})
 add_executable(ArRaspi_tests ${TESTS_LIST})
@@ -78,6 +82,7 @@ add_executable(ArRaspi_tests ${TESTS_LIST})
 
 include_directories(ext/googletest/googletest/include)
 include_directories(ext/googletest/googlemock/include)
+include_directories(${PROTOC_PATH}/include)
 
 target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} gcov pthread protobuf)
 target_link_libraries(ArRaspi_tests arraspi ${Boost_LIBRARIES} gcov protobuf gmock gmock_main pthread)

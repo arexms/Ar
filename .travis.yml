@@ -18,7 +18,8 @@ before_script:
   - tar xvfz protobuf-cpp-3.0.0.tar.gz
   - ( cd protobuf-3.0.0 && ./configure --prefix=$HOME/protobuf-3.0.0-bin && make -j2 && make install )
   - PATH=$PATH:$HOME/protobuf-3.0.0-bin/bin
+  - PROTOC_PATH=$HOME/protobuf-3.0.0-bin/
 script:
 - cd build
-- cmake ../ && make VERBOSE=yes
+- cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make VERBOSE=yes
 - cd ..
