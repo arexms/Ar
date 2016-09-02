@@ -66,12 +66,13 @@ endif()
 
 MESSAGE( STATUS "PROTOC_PATH: " ${PROTOC_PATH} )
 
+add_subdirectory(googlemock)
 
 ADD_DEPENDENCIES(arraspi generateProtobuf)
 
 #link_directories(${Boost_LIBRARY_DIR})
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest/)
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googlemock/)
+#link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googletest/)
+#link_directories(${CMAKE_CURRENT_SOURCE_DIR}/ext/googletest/googlemock/)
 link_directories(${PROTOC_PATH}/lib)
 
 add_executable(ArRaspi ${MAIN_FILE})
@@ -80,9 +81,10 @@ add_executable(ArRaspi_tests ${TESTS_LIST})
 #target_include_directories(ArRaspi_tests PUBLIC ext/googletest/googletest/include)
 #target_include_directories(ArRaspi_tests PUBLIC ext/googletest/googlemock/include)
 
-include_directories(ext/googletest/googletest/include)
-include_directories(ext/googletest/googlemock/include)
+#include_directories(ext/googletest/googletest/include)
+#include_directories(ext/googletest/googlemock/include)
+include_directories(${gtest_SOURCE_DIR}/include ${gmock_SOURCE_DIR}/include)
 include_directories(${PROTOC_PATH}/include)
-
+set(TEST_LIBS gmock_main)
 target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} gcov pthread protobuf)
-target_link_libraries(ArRaspi_tests arraspi ${Boost_LIBRARIES} gcov protobuf gmock gmock_main pthread)
+target_link_libraries(ArRaspi_tests arraspi ${Boost_LIBRARIES} gcov protobuf  ${TEST_LIBS} pthread)
