@@ -9,11 +9,8 @@ addons:
     packages:
       - gcc-5
       - g++-5
+      - libboost-system-dev
 before_script:
-  - ls
-  - $CXX -v
-  - sudo apt-get update -qq
-  - sudo apt-get install libboost-system-dev
   - wget https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz
   - tar xvfz protobuf-cpp-3.0.0.tar.gz
   - ( cd protobuf-3.0.0 && ./configure --prefix=$HOME/protobuf-3.0.0-bin && make -j2 && make install )
@@ -24,6 +21,4 @@ before_script:
   - ln -s googletest-release-1.8.0/googletest googletest
   - ln -s googletest-release-1.8.0/googlemock googlemock
 script:
-- cd build
-- cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make VERBOSE=yes
-- cd ..
+- ( cd build && cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make && make runTests && cd .. )

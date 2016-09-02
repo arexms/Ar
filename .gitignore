@@ -6,3 +6,6 @@ build/
 ArRaspi.pro.user
 tmp/
 .vscode
+googlemock
+googletest
+googletest-release-1.8.0
