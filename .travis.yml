@@ -15,7 +15,6 @@ addons:
       - libboost-system-dev
 before_script:
   - pwd
-  - $HOME
   - ls -la
   - ls -la ..
   - ls -la ../..
