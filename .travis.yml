@@ -16,6 +16,7 @@ addons:
 before_script:
   - (cd build && bash installProtobuf.sh && cd ..)
   - PATH=$PATH:$HOME/protobuf-3.0.0-bin/bin
+  - PROTOC_PATH=$HOME/protobuf-3.0.0-bin/
   - wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
   - tar xzf release-1.8.0.tar.gz
   - ln -s googletest-release-1.8.0/googletest googletest
