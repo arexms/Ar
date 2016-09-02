@@ -1,5 +1,8 @@
 language: cpp
 compiler: gcc
+cache:
+  directories:
+  - protobuf-3.0.0
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 addons:
@@ -11,9 +14,7 @@ addons:
       - g++-5
       - libboost-system-dev
 before_script:
-  - wget https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz
-  - tar xvfz protobuf-cpp-3.0.0.tar.gz
-  - ( cd protobuf-3.0.0 && ./configure --prefix=$HOME/protobuf-3.0.0-bin && make -j2 && make install )
+  - (cd build && bash installProtobuf.sh && cd ..)
   - PATH=$PATH:$HOME/protobuf-3.0.0-bin/bin
   - PROTOC_PATH=$HOME/protobuf-3.0.0-bin/
   - wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz

@@ -2,6 +2,7 @@ ext/
 !ext/README.md
 build/
 !build/generateProtobuf.sh
+!build/installProtobuf.sh
 ArRaspi.pro.user
 tmp/
 .vscode
