@@ -1,8 +1,7 @@
 ext/
 !ext/README.md
 build/
-!build/CMakeLists.txt
-!build/cmake-modules
+!build/generateProtobuf.sh
 ArRaspi.pro.user
 tmp/
 .vscode
