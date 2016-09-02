@@ -6,6 +6,6 @@ else
     tar xvfz protobuf-cpp-3.0.0.tar.gz
     rm protobuf-cpp-3.0.0.tar.gz
     ( cd protobuf-3.0.0 && ./configure --prefix=$HOME/protobuf-3.0.0-bin && make -j2 && make install && cd .. )
-    PATH=$PATH:$HOME/protobuf-3.0.0-bin/bin
-    PROTOC_PATH=$HOME/protobuf-3.0.0-bin/
 fi
+PATH=$PATH:$HOME/protobuf-3.0.0-bin/bin
+PROTOC_PATH=$HOME/protobuf-3.0.0-bin/
