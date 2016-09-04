@@ -48,7 +48,7 @@ class Reset;
 
 // ===================================================================
 
-class RaspiMessageEnvelope_Header : public ::google::protobuf::Message {
+class RaspiMessageEnvelope_Header : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.RaspiMessageEnvelope.Header) */ {
  public:
   RaspiMessageEnvelope_Header();
   virtual ~RaspiMessageEnvelope_Header();
@@ -82,7 +82,11 @@ class RaspiMessageEnvelope_Header : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -174,7 +178,7 @@ class RaspiMessageEnvelope_Header : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class RaspiMessageEnvelope_Body : public ::google::protobuf::Message {
+class RaspiMessageEnvelope_Body : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.RaspiMessageEnvelope.Body) */ {
  public:
   RaspiMessageEnvelope_Body();
   virtual ~RaspiMessageEnvelope_Body();
@@ -208,7 +212,11 @@ class RaspiMessageEnvelope_Body : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -264,7 +272,7 @@ class RaspiMessageEnvelope_Body : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class RaspiMessageEnvelope : public ::google::protobuf::Message {
+class RaspiMessageEnvelope : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.RaspiMessageEnvelope) */ {
  public:
   RaspiMessageEnvelope();
   virtual ~RaspiMessageEnvelope();
@@ -298,7 +306,11 @@ class RaspiMessageEnvelope : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -358,7 +370,7 @@ class RaspiMessageEnvelope : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class NewNodeMessage : public ::google::protobuf::Message {
+class NewNodeMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.NewNodeMessage) */ {
  public:
   NewNodeMessage();
   virtual ~NewNodeMessage();
@@ -392,7 +404,11 @@ class NewNodeMessage : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -460,7 +476,7 @@ class NewNodeMessage : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class AliveMessage : public ::google::protobuf::Message {
+class AliveMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.AliveMessage) */ {
  public:
   AliveMessage();
   virtual ~AliveMessage();
@@ -494,7 +510,11 @@ class AliveMessage : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -567,7 +587,7 @@ class AliveMessage : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class NodeStatus : public ::google::protobuf::Message {
+class NodeStatus : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.NodeStatus) */ {
  public:
   NodeStatus();
   virtual ~NodeStatus();
@@ -601,7 +621,11 @@ class NodeStatus : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -662,7 +686,7 @@ class NodeStatus : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Reset : public ::google::protobuf::Message {
+class Reset : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Ar.Raspi.Messages.Reset) */ {
  public:
   Reset();
   virtual ~Reset();
@@ -696,7 +720,11 @@ class Reset : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();

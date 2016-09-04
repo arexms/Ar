@@ -98,7 +98,7 @@ namespace Ar { namespace Middleware
         return *this;
     }
 
-    Logger::Logger(const std::string &prefix, const std::__cxx11::string &prologue)
+    Logger::Logger(const std::string &prefix, const std::string &prologue)
         : debug( prefix, DEBUG )
         , info( prefix, INFO )
         , warning( prefix, WARNING )

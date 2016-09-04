@@ -1,8 +1,11 @@
 ext/
 !ext/README.md
 build/
-!build/CMakeLists.txt
-!build/cmake-modules
+!build/generateProtobuf.sh
+!build/installProtobuf.sh
 ArRaspi.pro.user
 tmp/
 .vscode
+googlemock
+googletest
+googletest-release-1.8.0
