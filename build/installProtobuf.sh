@@ -1,4 +1,4 @@
-if [ -d "$HOME/protobuf-3.0.0-bin" ]; then
+if [ -f "$HOME/protobuf-3.0.0-bin/bin/protoc" ]; then
     echo "protobuf already installed"
 else
     echo "Downloading protobuf..."
