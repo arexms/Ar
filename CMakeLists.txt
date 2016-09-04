@@ -52,11 +52,11 @@ target_link_libraries(ArRaspi arraspi ${Boost_LIBRARIES} gcov pthread protobuf)
 
 if (NOT DEFINED ENABLE_TESTS)
     set(ENABLE_TESTS 1)
-    message(STATUS "Unit tests enabled")
 endif()
 
 if(ENABLE_TESTS)
 #    enable_testing()
+    message(STATUS "Unit tests enabled")
     ADD_CUSTOM_TARGET(
         runTests
         ${EXECUTABLE_OUTPUT_PATH}/./ArRaspi_tests --gtest_output="xml:gtest.xml"
