@@ -30,9 +30,13 @@ before_script:
   - ln -s googletest-release-1.8.0/googletest googletest
   - ln -s googletest-release-1.8.0/googlemock googlemock
   - (cd build && lcov --directory . --zerocounters && cd ..)
+  - lcov -v
+  - g++-5 -v
+  - gcov -v
 
 script:
-- ( cd build && cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make -j && make runTests && cd .. )
+- ( cd build && cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make VERBOSE=yes && make runTests && cd .. )
 
 after_success:
+- gcov-5 -v
 - (cd build && bash generateAndSubmitCoverallsReport.sh && cd ..)
