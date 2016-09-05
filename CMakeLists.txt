@@ -16,8 +16,7 @@ set(MAIN_FILE main.cpp)
 #SET(CMAKE_EXE_LINKER_FLAGS "--coverage" ) # for clang only
 
 #add_definitions("-Wno-long-long -Wno-variadic-macros -Wall -Wextra -Wno-unknown-pragmas -pedantic -Os -W -pthread -std=c++14")
-add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14")
-#add_definitions("-g -O0 -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -std=c++14")
+add_definitions("-g -O0 --coverage -Wall -W -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -pthread -std=c++14")
 
 #-------------------------------------------------------------------------------
 #
