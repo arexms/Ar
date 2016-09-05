@@ -7,4 +7,4 @@ lcov --remove coverage.info 'tests/*' '/usr/include/*' 'protobuf-3.0.0-bin/*' 'g
 echo "Listing..."
 lcov --list coverage.info
 echo "Submitting..."
-#coveralls-lcov --repo-token $COVERALLS_TOKEN coverage.info
+coveralls-lcov --repo-token $COVERALLS_TOKEN coverage.info
