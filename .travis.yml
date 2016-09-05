@@ -15,6 +15,7 @@ addons:
       - gcc-5
       - g++-5
       - libboost-system-dev
+      - lcov
 
 before_script:
   - (cd build && bash installProtobuf.sh && cd ..)
