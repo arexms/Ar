@@ -28,7 +28,7 @@ before_script:
   - (cd build && lcov --directory . --zerocounters && cd ..)
 
 script:
-- ( cd build && cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make && make runTests && cd .. )
+- ( cd build && cmake ../ -DPROTOC_PATH=$PROTOC_PATH && make -j && make runTests && cd .. )
 
 after_success:
 - (cd build && bash generateAndSubmitCoverallsReport.sh && cd ..)
